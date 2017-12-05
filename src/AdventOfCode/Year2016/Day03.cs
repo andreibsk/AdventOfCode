@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 
 namespace AdventOfCode.Year2016
 {
@@ -33,14 +30,6 @@ namespace AdventOfCode.Year2016
 			return SolutionPartTwo;
 		}
 
-		private static bool IsTriangleValid(int[] triangle)
-		{
-			if (triangle.Length != 3) throw new ArgumentOutOfRangeException(nameof(triangle));
-			return triangle[0] + triangle[1] >= triangle[2]
-				&& triangle[0] + triangle[2] >= triangle[1]
-				&& triangle[1] + triangle[2] >= triangle[0];
-		}
-
 		protected override void ParseInput(string[] input)
 		{
 			_triangles = input.Select(s =>
@@ -52,6 +41,14 @@ namespace AdventOfCode.Year2016
 				if (t.Length != 3) throw new FormatException("Expected three integers");
 				return t;
 			}).ToArray();
+		}
+
+		private static bool IsTriangleValid(int[] triangle)
+		{
+			if (triangle.Length != 3) throw new ArgumentOutOfRangeException(nameof(triangle));
+			return triangle[0] + triangle[1] >= triangle[2]
+				&& triangle[0] + triangle[2] >= triangle[1]
+				&& triangle[1] + triangle[2] >= triangle[0];
 		}
 	}
 }
