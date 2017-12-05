@@ -46,9 +46,9 @@ namespace AdventOfCode.Year2016
 		private static bool IsTriangleValid(int[] triangle)
 		{
 			if (triangle.Length != 3) throw new ArgumentOutOfRangeException(nameof(triangle));
-			return triangle[0] + triangle[1] >= triangle[2]
-				&& triangle[0] + triangle[2] >= triangle[1]
-				&& triangle[1] + triangle[2] >= triangle[0];
+			return triangle[0] + triangle[1] > triangle[2]
+				&& triangle[0] + triangle[2] > triangle[1]
+				&& triangle[1] + triangle[2] > triangle[0];
 		}
 	}
 }
