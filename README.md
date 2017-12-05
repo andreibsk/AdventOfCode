@@ -1,2 +1,2 @@
 # AdventOfCode
-Solutions for Advent of Code
+My solutions for [Advent of Code](https://adventofcode.com/) written in C# .NET Core.
