@@ -42,5 +42,14 @@ namespace AdventOfCode
 			if (!char.IsDigit(c)) throw new ArgumentOutOfRangeException(nameof(c));
 			return c - '0';
 		}
+
+		public static int MaxIndex<T>(this IList<T> list) where T : IComparable<T>
+		{
+			if (list.Count == 0) return -1;
+			int m = 0;
+			for (int i = 1; i < list.Count; i++)
+				if (list[i].CompareTo(list[m]) > 0) m = i;
+			return m;
+		}
 	}
 }
