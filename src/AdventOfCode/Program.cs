@@ -63,13 +63,13 @@ namespace AdventOfCode
 			Console.WriteLine("Part two solution:");
 			Console.WriteLine(solution);
 
-			Console.ReadKey(intercept: true);
+			if (!Console.IsInputRedirected) Console.ReadKey(intercept: true);
 		}
 
 		private static void ExitWithMessage(string message)
 		{
 			Console.WriteLine(message);
-			Console.ReadKey(intercept: true);
+			if (!Console.IsInputRedirected) Console.ReadKey(intercept: true);
 			Environment.Exit(-1);
 		}
 
