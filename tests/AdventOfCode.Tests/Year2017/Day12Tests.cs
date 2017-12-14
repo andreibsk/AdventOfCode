@@ -19,5 +19,9 @@ namespace AdventOfCode.Tests.Year2017
 		[Theory]
 		[InlineData("6")]
 		public void PartOneExample(string expected) => CalculatePartOne(s_input, expected);
+
+		[Theory]
+		[InlineData("2")]
+		public void PartTwoExample(string expected) => CalculatePartTwo(s_input, expected);
 	}
 }

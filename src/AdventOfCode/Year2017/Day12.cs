@@ -32,6 +32,29 @@ namespace AdventOfCode.Year2017
 
 		public override string CalculateSolutionPartTwo()
 		{
+			var visitedGroups = new List<HashSet<int>>();
+			var pipes = new Dictionary<int, int[]>(_pipes);
+
+			while (pipes.Count > 0)
+			{
+				var group = new HashSet<int>();
+				var visiting = new Queue<int>();
+				visiting.Enqueue(pipes.Keys.First());
+
+				while (visiting.Count > 0)
+				{
+					int prog = visiting.Dequeue();
+					if (group.Add(prog))
+					{
+						pipes.Remove(prog, out int[] progPipes);
+						foreach (int dest in progPipes) visiting.Enqueue(dest);
+					}
+				}
+
+				visitedGroups.Add(group);
+			}
+
+			SolutionPartTwo = visitedGroups.Count.ToString();
 			return SolutionPartTwo;
 		}
 
