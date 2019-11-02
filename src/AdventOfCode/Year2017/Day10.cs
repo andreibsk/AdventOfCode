@@ -5,13 +5,21 @@ namespace AdventOfCode.Year2017
 {
 	public class Day10 : Puzzle
 	{
-		private int[] _lengths;
-		private int _listLength = 256; // Used for testing.
+		private readonly int[] _lengths;
+		private readonly int _listLength = 256; // Used for testing.
+
+		public Day10(string[] input) : base(input)
+		{
+			_lengths = input[0].Split(',').Select(int.Parse).ToArray();
+
+			if (input.Length > 1 && input[1].Length != 0)
+				_listLength = int.Parse(input[1]);
+		}
 
 		public override DateTime Date => new DateTime(2017, 12, 10);
 		public override string Title => "Knot Hash";
 
-		public override string CalculateSolution()
+		public override string? CalculateSolution()
 		{
 			int[] list = Enumerable.Range(0, _listLength).ToArray();
 			int skip = 0;
@@ -28,7 +36,7 @@ namespace AdventOfCode.Year2017
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
 			int[] lengths = string.Join(',', _lengths.Select(l => l.ToString())).Select(c => (int)c)
 				.Concat(new[] { 17, 31, 73, 47, 23 }).ToArray();
@@ -47,14 +55,6 @@ namespace AdventOfCode.Year2017
 			SolutionPartTwo = string.Concat(
 				list.AsBatches(16).Select(batch => batch.Aggregate((a, b) => a ^ b).ToString("x2")));
 			return SolutionPartTwo;
-		}
-
-		protected override void ParseInput(string[] input)
-		{
-			_lengths = input[0].Split(',').Select(int.Parse).ToArray();
-
-			if (input.Length > 1 && input[1].Length != 0)
-				_listLength = int.Parse(input[1]);
 		}
 
 		private void Reverse(int[] a, int start, int length)

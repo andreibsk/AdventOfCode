@@ -6,12 +6,17 @@ namespace AdventOfCode.Year2017
 {
 	public class Day04 : Puzzle
 	{
-		private string[][] _passphrases;
+		private readonly string[][] _passphrases;
+
+		public Day04(string[] input) : base(input)
+		{
+			_passphrases = input.Select(s => s.Split(' ', StringSplitOptions.RemoveEmptyEntries)).ToArray();
+		}
 
 		public override DateTime Date => new DateTime(2017, 12, 4);
 		public override string Title => "High-Entropy Passphrases";
 
-		public override string CalculateSolution()
+		public override string? CalculateSolution()
 		{
 			int validCount = 0;
 			var words = new HashSet<string>();
@@ -27,7 +32,7 @@ namespace AdventOfCode.Year2017
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
 			int validCount = 0;
 			var words = new HashSet<string>();
@@ -42,11 +47,6 @@ namespace AdventOfCode.Year2017
 
 			SolutionPartTwo = validCount.ToString();
 			return SolutionPartTwo;
-		}
-
-		protected override void ParseInput(string[] input)
-		{
-			_passphrases = input.Select(s => s.Split(' ', StringSplitOptions.RemoveEmptyEntries)).ToArray();
 		}
 	}
 }

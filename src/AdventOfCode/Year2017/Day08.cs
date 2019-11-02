@@ -6,12 +6,17 @@ namespace AdventOfCode.Year2017
 {
 	public class Day08 : Puzzle
 	{
-		private Instruction[] _instructions;
+		private readonly Instruction[] _instructions;
+
+		public Day08(string[] input) : base(input)
+		{
+			_instructions = input.Select(Instruction.Parse).ToArray();
+		}
 
 		public override DateTime Date => new DateTime(2017, 12, 8);
 		public override string Title => "I Heard You Like Registers";
 
-		public override string CalculateSolution()
+		public override string? CalculateSolution()
 		{
 			var register = new Dictionary<string, int>();
 			int Reader(string s) => register.GetValueOrDefault(s, 0);
@@ -24,7 +29,7 @@ namespace AdventOfCode.Year2017
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
 			var register = new Dictionary<string, int>();
 			int max = int.MinValue;
@@ -43,13 +48,19 @@ namespace AdventOfCode.Year2017
 			return SolutionPartTwo;
 		}
 
-		protected override void ParseInput(string[] input)
-		{
-			_instructions = input.Select(Instruction.Parse).ToArray();
-		}
-
 		private class Instruction
 		{
+			public Instruction(string register, int value, string conditionRegister, int conditionValue, Func<int, int, int> operation,
+				Func<int, int, bool> conditionOperator)
+			{
+				Register = register;
+				Value = value;
+				ConditionRegister = conditionRegister;
+				ConditionValue = conditionValue;
+				Operation = operation;
+				ConditionOperator = conditionOperator;
+			}
+
 			public Func<int, int, bool> ConditionOperator { get; set; }
 			public string ConditionRegister { get; set; }
 			public int ConditionValue { get; set; }
@@ -61,32 +72,34 @@ namespace AdventOfCode.Year2017
 			{
 				// "b inc 5 if a > 1"
 				string[] s = instructionString.Trim().Split(' ').ToArray();
-				if (s == null || s.Length != 7) throw new FormatException();
-				if (s[3] != "if") throw new FormatException("Instruction doesn't contain an if condition.");
-				var instruction = new Instruction
-				{
-					Register = s[0],
-					Value = int.Parse(s[2]),
-					ConditionRegister = s[4],
-					ConditionValue = int.Parse(s[6])
-				};
-				switch (s[1])
-				{
-					case "inc": instruction.Operation = (a, b) => a + b; break;
-					case "dec": instruction.Operation = (a, b) => a - b; break;
-					default: throw new FormatException($"Invalid opearation in condition: {s[1]}");
-				}
-				switch (s[5])
-				{
-					case ">": instruction.ConditionOperator = (a, b) => a > b; break;
-					case ">=": instruction.ConditionOperator = (a, b) => a >= b; break;
-					case "==": instruction.ConditionOperator = (a, b) => a == b; break;
-					case "<": instruction.ConditionOperator = (a, b) => a < b; break;
-					case "<=": instruction.ConditionOperator = (a, b) => a <= b; break;
-					case "!=": instruction.ConditionOperator = (a, b) => a != b; break;
-					default: throw new FormatException($"Invalid opearation in condition: {s[5]}");
-				}
-				return instruction;
+				if (s == null || s.Length != 7)
+					throw new FormatException();
+				if (s[3] != "if")
+					throw new FormatException("Instruction doesn't contain an if condition.");
+
+				return new Instruction
+				(
+					s[0],
+					int.Parse(s[2]),
+					s[4],
+					int.Parse(s[6]),
+					(s[1]) switch
+					{
+						"inc" => (a, b) => a + b,
+						"dec" => (a, b) => a - b,
+						_ => throw new FormatException($"Invalid opearation in condition: {s[1]}"),
+					},
+					(s[5]) switch
+					{
+						">" => (a, b) => a > b,
+						">=" => (a, b) => a >= b,
+						"==" => (a, b) => a == b,
+						"<" => (a, b) => a < b,
+						"<=" => (a, b) => a <= b,
+						"!=" => (a, b) => a != b,
+						_ => throw new FormatException($"Invalid opearation in condition: {s[5]}"),
+					}
+				);
 			}
 
 			public void Execute(Func<string, int> read, Action<string, int> write)

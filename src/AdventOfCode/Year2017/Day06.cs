@@ -6,14 +6,19 @@ namespace AdventOfCode.Year2017
 {
 	public class Day06 : Puzzle
 	{
-		private int[] _banks;
+		private readonly int[] _banks;
+
+		public Day06(string[] input) : base(input)
+		{
+			_banks = input[0].Split(' ', '\t').Select(int.Parse).ToArray();
+		}
 
 		public override DateTime Date => new DateTime(2017, 12, 6);
 		public override string Title => "Memory Reallocation";
 
-		public override string CalculateSolution()
+		public override string? CalculateSolution()
 		{
-			var banks = (int[])_banks.Clone();
+			int[] banks = (int[])_banks.Clone();
 			var states = new List<int[]>();
 			int m, blocks;
 
@@ -21,7 +26,7 @@ namespace AdventOfCode.Year2017
 			{
 				states.Add((int[])banks.Clone());
 
-				m = banks.MaxIndex();
+				m = banks.IndexOfMaxValue();
 				blocks = banks[m];
 				banks[m] = 0;
 
@@ -37,9 +42,9 @@ namespace AdventOfCode.Year2017
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
-			var banks = (int[])_banks.Clone();
+			int[] banks = (int[])_banks.Clone();
 			var states = new List<int[]>();
 			int m, blocks, si;
 
@@ -47,7 +52,7 @@ namespace AdventOfCode.Year2017
 			{
 				states.Add((int[])banks.Clone());
 
-				m = banks.MaxIndex();
+				m = banks.IndexOfMaxValue();
 				blocks = banks[m];
 				banks[m] = 0;
 
@@ -61,11 +66,6 @@ namespace AdventOfCode.Year2017
 
 			SolutionPartTwo = (states.Count - si).ToString();
 			return SolutionPartTwo;
-		}
-
-		protected override void ParseInput(string[] input)
-		{
-			_banks = input[0].Split(' ', '\t').Select(int.Parse).ToArray();
 		}
 	}
 }

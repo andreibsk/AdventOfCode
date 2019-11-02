@@ -5,12 +5,22 @@ namespace AdventOfCode.Year2017
 {
 	public class Day02 : Puzzle
 	{
-		int[][] _sheet;
+		private readonly int[][] _sheet;
+
+		public Day02(string[] input) : base(input)
+		{
+			_sheet = new int[input.Length][];
+			for (int i = 0; i < input.Length; i++)
+				_sheet[i] = input[i]
+					.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries)
+					.Select(int.Parse)
+					.ToArray();
+		}
 
 		public override DateTime Date => new DateTime(2017, 12, 2);
 		public override string Title => "Corruption Checksum";
 
-		public override string CalculateSolution()
+		public override string? CalculateSolution()
 		{
 			if (_sheet == null) throw new InvalidOperationException("Input not parsed.");
 
@@ -32,7 +42,7 @@ namespace AdventOfCode.Year2017
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
 			if (_sheet == null) throw new InvalidOperationException("Input not parsed.");
 
@@ -66,16 +76,6 @@ namespace AdventOfCode.Year2017
 
 			SolutionPartTwo = sum.ToString();
 			return SolutionPartTwo;
-		}
-
-		protected override void ParseInput(string[] input)
-		{
-			_sheet = new int[input.Length][];
-			for (int i = 0; i < input.Length; i++)
-				_sheet[i] = input[i]
-					.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries)
-					.Select(int.Parse)
-					.ToArray();
 		}
 	}
 }

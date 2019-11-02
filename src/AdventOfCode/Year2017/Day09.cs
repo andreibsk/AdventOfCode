@@ -1,17 +1,20 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace AdventOfCode.Year2017
 {
 	public class Day09 : Puzzle
 	{
-		private string _stream;
+		private readonly string _stream;
+
+		public Day09(string[] input) : base(input)
+		{
+			_stream = input[0];
+		}
 
 		public override DateTime Date => new DateTime(2017, 12, 9);
 		public override string Title => "Stream Processing";
 
-		public override string CalculateSolution()
+		public override string? CalculateSolution()
 		{
 			int level = 0;
 			int score = 0;
@@ -30,7 +33,7 @@ namespace AdventOfCode.Year2017
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
 			int gcount = 0;
 			bool garbage = false;
@@ -43,6 +46,7 @@ namespace AdventOfCode.Year2017
 						if (garbage) gcount++;
 						garbage = true;
 						break;
+
 					default:
 						if (garbage) gcount++;
 						break;
@@ -50,11 +54,6 @@ namespace AdventOfCode.Year2017
 
 			SolutionPartTwo = gcount.ToString();
 			return SolutionPartTwo;
-		}
-
-		protected override void ParseInput(string[] input)
-		{
-			_stream = input[0];
 		}
 	}
 }

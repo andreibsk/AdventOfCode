@@ -6,9 +6,9 @@ namespace AdventOfCode.Year2016
 {
 	public class Day02 : Puzzle
 	{
-		private Direction[][] _instructions;
+		private readonly Direction[][] _instructions;
 
-		private char?[,] _pad = new char?[,]
+		private readonly char?[,] _pad = new char?[,]
 		{
 			{ null, null, '1', null, null },
 			{ null,  '2', '3',  '4', null },
@@ -17,10 +17,15 @@ namespace AdventOfCode.Year2016
 			{ null, null, 'D', null, null }
 		};
 
+		public Day02(string[] input) : base(input)
+		{
+			_instructions = input.Select(s => s.Select(Direction.Parse).ToArray()).ToArray();
+		}
+
 		public override DateTime Date => new DateTime(2016, 12, 2);
 		public override string Title => "Bathroom Security";
 
-		public override string CalculateSolution()
+		public override string? CalculateSolution()
 		{
 			var code = new StringBuilder();
 			int button = 5; // Start on 5.
@@ -41,7 +46,7 @@ namespace AdventOfCode.Year2016
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
 			var code = new StringBuilder();
 			Position pos = (0, 2); // Start on 5.
@@ -58,11 +63,6 @@ namespace AdventOfCode.Year2016
 
 			SolutionPartTwo = code.ToString();
 			return SolutionPartTwo;
-		}
-
-		protected override void ParseInput(string[] input)
-		{
-			_instructions = input.Select(s => s.Select(Direction.Parse).ToArray()).ToArray();
 		}
 	}
 }

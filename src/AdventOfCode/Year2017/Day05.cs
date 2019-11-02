@@ -6,14 +6,19 @@ namespace AdventOfCode.Year2017
 {
 	public class Day05 : Puzzle
 	{
-		private int[] _jumpOffsets;
+		private readonly int[] _jumpOffsets;
+
+		public Day05(string[] input) : base(input)
+		{
+			_jumpOffsets = input.Select(int.Parse).ToArray();
+		}
 
 		public override DateTime Date => new DateTime(2017, 12, 5);
 		public override string Title => "A Maze of Twisty Trampolines, All Alike";
 
-		public override string CalculateSolution()
+		public override string? CalculateSolution()
 		{
-			var jumps = (int[])_jumpOffsets.Clone();
+			int[] jumps = (int[])_jumpOffsets.Clone();
 			int count = 0;
 
 			for (int i = 0; i >= 0 && i < jumps.Length; i += jumps[i]++) count++;
@@ -22,9 +27,9 @@ namespace AdventOfCode.Year2017
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
-			var jumps = (int[])_jumpOffsets.Clone();
+			int[] jumps = (int[])_jumpOffsets.Clone();
 			int count = 0;
 
 			for (int i = 0; i >= 0 && i < jumps.Length;)
@@ -35,11 +40,6 @@ namespace AdventOfCode.Year2017
 
 			SolutionPartTwo = count.ToString();
 			return SolutionPartTwo;
-		}
-
-		protected override void ParseInput(string[] input)
-		{
-			_jumpOffsets = input.Select(int.Parse).ToArray();
 		}
 	}
 }

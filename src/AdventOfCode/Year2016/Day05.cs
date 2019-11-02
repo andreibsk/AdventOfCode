@@ -11,9 +11,14 @@ namespace AdventOfCode.Year2016
 		public override DateTime Date => new DateTime(2016, 12, 5);
 		public override string Title => "How About a Nice Game of Chess?";
 
-		private string _doorId;
+		private readonly string _doorId;
 
-		public override string CalculateSolution()
+		public Day05(string[] input) : base(input)
+		{
+			_doorId = input[0];
+		}
+
+		public override string? CalculateSolution()
 		{
 			using var md5 = MD5.Create();
 
@@ -25,7 +30,7 @@ namespace AdventOfCode.Year2016
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
 			using var md5 = MD5.Create();
 			char?[] pass = new char?[8];
@@ -43,11 +48,6 @@ namespace AdventOfCode.Year2016
 
 			Solution = pass.Aggregate(string.Empty, (s, c) => s + c);
 			return Solution;
-		}
-
-		protected override void ParseInput(string[] input)
-		{
-			_doorId = input[0];
 		}
 
 		private IEnumerable<(int Index, char Char)> GenerateChars(MD5 md5, int charPosition)

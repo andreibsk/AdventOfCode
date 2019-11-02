@@ -33,9 +33,10 @@ namespace AdventOfCode
 
 		public int BlockDistanceTo(Position p) => Math.Abs(X - p.X) + Math.Abs(Y - p.Y);
 
-		public override bool Equals(object obj)
+		public override bool Equals(object? obj)
 		{
-			if (!(obj is Position p)) return false;
+			if (!(obj is Position p))
+				return false;
 			return p.X == X && p.Y == Y;
 		}
 

@@ -5,15 +5,21 @@ namespace AdventOfCode.Year2017
 {
 	public class Day01 : Puzzle
 	{
-		private int[] _digits;
+		private readonly int[] _digits;
+
+		public Day01(string[] input) : base(input)
+		{
+			if (input.Length != 1 || input[0].Length < 1) throw new FormatException(nameof(input));
+			_digits = input[0].ToCharArray().Select(Util.ToDigit).ToArray();
+		}
 
 		public override DateTime Date => new DateTime(2017, 12, 1);
 		public override string Title => "Inverse Captcha";
 
-		public override string CalculateSolution()
+		public override string? CalculateSolution()
 		{
 			int sum = 0;
-			int prev = _digits[_digits.Length - 1];
+			int prev = _digits[^1];
 			int cur;
 			for (int i = 0; i < _digits.Length; i++)
 			{
@@ -26,21 +32,15 @@ namespace AdventOfCode.Year2017
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
 			int sum = 0;
 			for (int i = 0; i < _digits.Length; i++)
-				if (_digits[i] == _digits[((_digits.Length / 2) + i) % _digits.Length])
+				if (_digits[i] == _digits[(_digits.Length / 2 + i) % _digits.Length])
 					sum += _digits[i];
 
 			SolutionPartTwo = sum.ToString();
 			return SolutionPartTwo;
-		}
-
-		protected override void ParseInput(string[] input)
-		{
-			if (input.Length != 1 || input[0].Length < 1) throw new FormatException(nameof(input));
-			_digits = input[0].ToCharArray().Select(Util.ToDigit).ToArray();
 		}
 	}
 }

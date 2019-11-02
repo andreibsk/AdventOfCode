@@ -32,24 +32,30 @@ namespace AdventOfCode
 		{
 			if (i >= 0 && j >= 0 && i < array.GetLength(0) && j < array.GetLength(1))
 				return array[i, j];
-			else return default;
+			else
+				return default!;
 		}
 
 		public static T ElementAtOrDefault<T>(this T[,] array, Position p) => ElementAtOrDefault(array, p.Y, p.X);
 
-		public static int MaxIndex<T>(this IList<T> list) where T : IComparable<T>
+		public static int IndexOfMaxValue<T>(this IList<T> list) where T : IComparable<T>
 		{
-			if (list.Count == 0) return -1;
+			if (list.Count == 0)
+				return -1;
+
 			int m = 0;
+
 			for (int i = 1; i < list.Count; i++)
-				if (list[i].CompareTo(list[m]) > 0) m = i;
+				if (list[i].CompareTo(list[m]) > 0)
+					m = i;
+
 			return m;
 		}
 
 		public static string[] ReadToEmptyLine(this TextReader reader)
 		{
 			var lines = new List<string>();
-			string line;
+			string? line;
 			while ((line = reader.ReadLine()) != null)
 			{
 				if (line.Length != 0) lines.Add(line);

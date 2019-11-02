@@ -1,64 +1,66 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Text.RegularExpressions;
 
 namespace AdventOfCode
 {
 	public static class Program
 	{
-		public static void Main(string[] args)
+		public static int Main(string[] args)
 		{
 			string datestr;
-			if (args.Length > 0)
-			{
-				datestr = args[0];
-			}
-			else
+			if (args.Length == 0)
 			{
 				Console.WriteLine("Select puzzle to run. [[yy]yy.][dd]");
 				Console.Write("Puzzle date: ");
 
 				datestr = Console.ReadLine();
 			}
-			DateTime? date = ParsePuzzleDate(datestr);
-			if (!date.HasValue)
-				ExitWithMessage("Invalid year/date format.");
+			else
+				datestr = args[0];
 
-			// Create the puzzle.
-			var puzzleType = Type.GetType($"{nameof(AdventOfCode)}.Year{date.Value.Year}.Day{date.Value.Day:00}");
+			DateTime? date = ParsePuzzleDate(datestr);
+			if (date == null)
+				return ExitError("Invalid year/date format.");
+
+			// Detect the puzzle.
+			Type? puzzleType = Puzzle.GetType(date.Value);
 			if (puzzleType == null)
-				ExitWithMessage($"There's no puzzle for the specified date: {date.Value.ToLongDateString()}");
-			Puzzle puzzle;
-			try
-			{
-				puzzle = (Puzzle)Activator.CreateInstance(puzzleType);
-			}
-			catch (FormatException e)
-			{
-				ExitWithMessage(e.Message);
-				return;
-			}
-			Console.WriteLine($"--- Advent of Code {puzzle.Date.Year} ---");
-			Console.WriteLine("--- Day " + puzzle.Date.Day + (puzzle.Title == null ? "" : $": {puzzle.Title}") + " ---");
+				return ExitError($"There's no puzzle for the specified date: {date.Value.ToLongDateString()}");
+			Console.WriteLine("Detected: " + puzzleType.FullName);
+			Console.WriteLine();
 
 			// Read input.
 			SetConsoleInputBuffer(4096);
 			Console.WriteLine("Puzzle input:");
 			string[] input = Console.In.ReadToEmptyLine();
 			if (input == null || input.Length == 0)
-				ExitWithMessage("No input provided.");
-			puzzle.SetInput(input);
+				return ExitError("No input provided.");
+
+			// Create the puzzle.
+			Puzzle puzzle;
+			try
+			{
+				puzzle = Puzzle.Construct(puzzleType, input);
+			}
+			catch (FormatException e)
+			{
+				return ExitError(e.Message);
+			}
+			Console.WriteLine($"--- Advent of Code {puzzle.Date.Year} ---");
+			Console.WriteLine("--- Day " + puzzle.Date.Day + (puzzle.Title == null ? "" : $": {puzzle.Title}") + " ---");
 
 			// Part one.
 			var watch = new Stopwatch();
 			watch.Start();
-			string solution = puzzle.CalculateSolution();
+			string? solution = puzzle.CalculateSolution();
 			watch.Stop();
 			Console.WriteLine($"Duration: {watch.Elapsed.ToString()}");
 
-			if (string.IsNullOrEmpty(solution))
-				ExitWithMessage("Failed to calculate solution to part one.");
+			if (solution == null)
+				return ExitError("Failed to calculate solution to part one.");
 			Console.WriteLine("Puzzle solution:");
 			Console.WriteLine(solution);
 			Console.WriteLine();
@@ -69,20 +71,24 @@ namespace AdventOfCode
 			watch.Stop();
 			Console.WriteLine($"Duration: {watch.Elapsed.ToString()}");
 
-			if (string.IsNullOrEmpty(solution))
-				ExitWithMessage("Failed to calculate solution to part two.");
+			if (solution == null)
+				return ExitError("Failed to calculate solution to part two.");
 			Console.WriteLine("Part two solution:");
 			Console.WriteLine(solution);
+			Console.WriteLine();
 
 			if (!Console.IsInputRedirected)
 				Console.ReadKey(intercept: true);
+
+			return 0;
 		}
 
-		private static void ExitWithMessage(string message)
+		private static int ExitError(string message)
 		{
 			Console.WriteLine(message);
-			if (!Console.IsInputRedirected) Console.ReadKey(intercept: true);
-			Environment.Exit(-1);
+			if (!Console.IsInputRedirected)
+				Console.ReadKey(intercept: true);
+			return -1;
 		}
 
 		private static DateTime? ParsePuzzleDate(string datestr)

@@ -5,12 +5,30 @@ namespace AdventOfCode.Year2017
 {
 	public class Day11 : Puzzle
 	{
-		private (int, int, int)[] _path;
+		private readonly (int, int, int)[] _path;
+
+		public Day11(string[] input) : base(input)
+		{
+			_path = input[0].Split(',').Select(s =>
+			{
+				return (s.ToLowerInvariant()) switch
+				{
+					"n" => (0, 1, -1),
+					"ne" => (1, 0, -1),
+					"nw" => (-1, 1, 0),
+					"s" => (0, -1, 1),
+					"se" => (1, -1, 0),
+					"sw" => (-1, 0, 1),
+
+					_ => throw new FormatException($"Can't parse the string '{s}' to an equivalent {nameof(Direction)}.")
+				};
+			}).ToArray();
+		}
 
 		public override DateTime Date => new DateTime(2017, 12, 11);
 		public override string Title => "Hex Ed";
 
-		public override string CalculateSolution()
+		public override string? CalculateSolution()
 		{
 			(int x, int y, int z) pos = (0, 0, 0);
 			foreach ((int dx, int dy, int dz) in _path)
@@ -20,7 +38,7 @@ namespace AdventOfCode.Year2017
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
 			int maxDistance = int.MinValue;
 			(int x, int y, int z) pos = (0, 0, 0);
@@ -32,26 +50,6 @@ namespace AdventOfCode.Year2017
 			}
 			SolutionPartTwo = maxDistance.ToString();
 			return SolutionPartTwo;
-		}
-
-		protected override void ParseInput(string[] input)
-		{
-			_path = input[0].Split(',').Select(s =>
-			{
-				switch (s.ToLowerInvariant())
-				{
-					case "n": return (0, 1, -1);
-					case "ne": return (1, 0, -1);
-					case "nw": return (-1, 1, 0);
-					case "s": return (0, -1, 1);
-					case "se": return (1, -1, 0);
-					case "sw": return (-1, 0, 1);
-
-					default:
-						throw new FormatException(
-							$"Can't parse the string '{s}' to an equivalent {nameof(Direction)}.");
-				}
-			}).ToArray();
 		}
 	}
 }

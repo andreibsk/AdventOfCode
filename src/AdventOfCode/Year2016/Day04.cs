@@ -6,18 +6,23 @@ namespace AdventOfCode.Year2016
 {
 	public class Day04 : Puzzle
 	{
-		private Room[] _rooms;
+		private readonly Room[] _rooms;
+
+		public Day04(string[] input) : base(input)
+		{
+			_rooms = input.Select(Room.Parse).ToArray();
+		}
 
 		public override DateTime Date => new DateTime(2016, 12, 4);
 		public override string Title => "Security Through Obscurity";
 
-		public override string CalculateSolution()
+		public override string? CalculateSolution()
 		{
 			Solution = _rooms.Where(r => r.IsReal()).Sum(r => r.SectorId).ToString();
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
 			SolutionPartTwo = _rooms
 				.Where(r => r.DecryptedName().Equals("northpole object storage"))
@@ -26,16 +31,18 @@ namespace AdventOfCode.Year2016
 			return SolutionPartTwo;
 		}
 
-		protected override void ParseInput(string[] input)
-		{
-			_rooms = input.Select(Room.Parse).ToArray();
-		}
-
 		private class Room
 		{
 			private static readonly Regex s_regex = new Regex(
 				@"^(?<name>([a-z]+-)*[a-z]+)-(?<sector>\d+)\[(?<checksum>[a-z]{5})\]$",
 				RegexOptions.Compiled);
+
+			public Room(string encryptedName, int sectorId, string checksum)
+			{
+				EncryptedName = encryptedName;
+				SectorId = sectorId;
+				Checksum = checksum;
+			}
 
 			public string Checksum { get; set; }
 			public string EncryptedName { get; set; }
@@ -44,13 +51,10 @@ namespace AdventOfCode.Year2016
 			public static Room Parse(string input)
 			{
 				Match match = s_regex.Match(input);
-				if (!match.Success) throw new FormatException();
-				return new Room()
-				{
-					EncryptedName = match.Groups["name"].Value,
-					SectorId = int.Parse(match.Groups["sector"].Value),
-					Checksum = match.Groups["checksum"].Value
-				};
+				if (!match.Success)
+					throw new FormatException();
+
+				return new Room(match.Groups["name"].Value, int.Parse(match.Groups["sector"].Value), match.Groups["checksum"].Value);
 			}
 
 			public bool IsReal()

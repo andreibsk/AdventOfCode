@@ -62,9 +62,10 @@ namespace AdventOfCode
 			}
 		}
 
-		public override bool Equals(object obj)
+		public override bool Equals(object? obj)
 		{
-			if (!(obj is Direction d)) return false;
+			if (!(obj is Direction d))
+				return false;
 			return d.DeltaX == DeltaX && d.DeltaY == DeltaY;
 		}
 

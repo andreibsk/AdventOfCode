@@ -6,12 +6,25 @@ namespace AdventOfCode.Year2016
 {
 	public class Day01 : Puzzle
 	{
-		private (char turnDirection, int distance)[] _sequence;
+		private readonly (char turnDirection, int distance)[] _sequence;
+
+		public Day01(string[] input) : base(input)
+		{
+			_sequence = input[0]
+				.Split(", ", StringSplitOptions.RemoveEmptyEntries)
+				.Select(s =>
+				{
+					if (s[0] != 'R' && s[0] != 'L')
+						throw new FormatException("Invalid direction.");
+					return (s[0], int.Parse(s[1..]));
+				})
+				.ToArray();
+		}
 
 		public override DateTime Date => new DateTime(2016, 12, 1);
 		public override string Title => "No Time for a Taxicab";
 
-		public override string CalculateSolution()
+		public override string? CalculateSolution()
 		{
 			Position pos = (0, 0);
 			Direction direction = Direction.North;
@@ -26,7 +39,7 @@ namespace AdventOfCode.Year2016
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
 			Position pos = Position.Zero;
 			var visited = new HashSet<Position>() { pos };
@@ -50,18 +63,6 @@ namespace AdventOfCode.Year2016
 			}
 
 			return SolutionPartTwo;
-		}
-
-		protected override void ParseInput(string[] input)
-		{
-			_sequence = input[0]
-				.Split(", ", StringSplitOptions.RemoveEmptyEntries)
-				.Select(s =>
-				{
-					if (s[0] != 'R' && s[0] != 'L') throw new FormatException("Invalid direction.");
-					return (s[0], int.Parse(s.Substring(1, s.Length - 1)));
-				})
-				.ToArray();
 		}
 	}
 }

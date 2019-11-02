@@ -5,12 +5,17 @@ namespace AdventOfCode.Year2017
 {
 	public class Day03 : Puzzle
 	{
-		private int _square;
+		private readonly int _square;
+
+		public Day03(string[] input) : base(input)
+		{
+			_square = int.Parse(input[0]);
+		}
 
 		public override DateTime Date => new DateTime(2017, 12, 3);
 		public override string Title => "Spiral Memory";
 
-		public override string CalculateSolution()
+		public override string? CalculateSolution()
 		{
 			Position p = PositionOf(_square);
 			int distance = Math.Abs(p.X) + Math.Abs(p.Y);
@@ -19,7 +24,7 @@ namespace AdventOfCode.Year2017
 			return Solution;
 		}
 
-		public override string CalculateSolutionPartTwo()
+		public override string? CalculateSolutionPartTwo()
 		{
 			var memory = new Dictionary<Position, int>
 			{
@@ -61,11 +66,6 @@ namespace AdventOfCode.Year2017
 			return SolutionPartTwo;
 		}
 
-		protected override void ParseInput(string[] input)
-		{
-			_square = int.Parse(input[0]);
-		}
-
 		private Position PositionOf(int n)
 		{
 			int root = (int)Math.Floor(Math.Sqrt(n - 1));
@@ -74,7 +74,7 @@ namespace AdventOfCode.Year2017
 			int modifier = root * (root + 1) - n + 1;
 
 			int x = sign * layer + sign * (modifier - Math.Abs(modifier)) / 2;
-			int y = (-sign) * layer + sign * (modifier + Math.Abs(modifier)) / 2;
+			int y = -sign * layer + sign * (modifier + Math.Abs(modifier)) / 2;
 			return (x, y);
 		}
 	}
