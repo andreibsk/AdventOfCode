@@ -9,7 +9,7 @@ namespace AdventOfCode
 	{
 		public static void Main(string[] args)
 		{
-			string datestr = null;
+			string datestr;
 			if (args.Length > 0)
 			{
 				datestr = args[0];
@@ -22,24 +22,32 @@ namespace AdventOfCode
 				datestr = Console.ReadLine();
 			}
 			DateTime? date = ParsePuzzleDate(datestr);
-			if (!date.HasValue) ExitWithMessage("Invalid year/date format.");
+			if (!date.HasValue)
+				ExitWithMessage("Invalid year/date format.");
 
 			// Create the puzzle.
-			Type puzzleType = GetPuzzleTypeForDate(date.Value.Year, date.Value.Day);
+			var puzzleType = Type.GetType($"{nameof(AdventOfCode)}.Year{date.Value.Year}.Day{date.Value.Day:00}");
 			if (puzzleType == null)
 				ExitWithMessage($"There's no puzzle for the specified date: {date.Value.ToLongDateString()}");
 			Puzzle puzzle;
-			try { puzzle = (Puzzle)Activator.CreateInstance(puzzleType); }
-			catch (FormatException e) { ExitWithMessage(e.Message); return; }
+			try
+			{
+				puzzle = (Puzzle)Activator.CreateInstance(puzzleType);
+			}
+			catch (FormatException e)
+			{
+				ExitWithMessage(e.Message);
+				return;
+			}
 			Console.WriteLine($"--- Advent of Code {puzzle.Date.Year} ---");
-			Console.WriteLine("--- Day " + puzzle.Date.Day + (puzzle.Title == null ? "" : $": {puzzle.Title}") +
-				" ---");
+			Console.WriteLine("--- Day " + puzzle.Date.Day + (puzzle.Title == null ? "" : $": {puzzle.Title}") + " ---");
 
 			// Read input.
 			SetConsoleInputBuffer(4096);
 			Console.WriteLine("Puzzle input:");
 			string[] input = Console.In.ReadToEmptyLine();
-			if (input == null || input.Length == 0) ExitWithMessage("No input provided.");
+			if (input == null || input.Length == 0)
+				ExitWithMessage("No input provided.");
 			puzzle.SetInput(input);
 
 			// Part one.
@@ -49,9 +57,11 @@ namespace AdventOfCode
 			watch.Stop();
 			Console.WriteLine($"Duration: {watch.Elapsed.ToString()}");
 
-			if (string.IsNullOrEmpty(solution)) ExitWithMessage("Failed to calculate solution to part one.");
+			if (string.IsNullOrEmpty(solution))
+				ExitWithMessage("Failed to calculate solution to part one.");
 			Console.WriteLine("Puzzle solution:");
 			Console.WriteLine(solution);
+			Console.WriteLine();
 
 			// Part two.
 			watch.Restart();
@@ -59,11 +69,13 @@ namespace AdventOfCode
 			watch.Stop();
 			Console.WriteLine($"Duration: {watch.Elapsed.ToString()}");
 
-			if (string.IsNullOrEmpty(solution)) ExitWithMessage("Failed to calculate solution to part two.");
+			if (string.IsNullOrEmpty(solution))
+				ExitWithMessage("Failed to calculate solution to part two.");
 			Console.WriteLine("Part two solution:");
 			Console.WriteLine(solution);
 
-			if (!Console.IsInputRedirected) Console.ReadKey(intercept: true);
+			if (!Console.IsInputRedirected)
+				Console.ReadKey(intercept: true);
 		}
 
 		private static void ExitWithMessage(string message)
@@ -71,12 +83,6 @@ namespace AdventOfCode
 			Console.WriteLine(message);
 			if (!Console.IsInputRedirected) Console.ReadKey(intercept: true);
 			Environment.Exit(-1);
-		}
-
-		private static Type GetPuzzleTypeForDate(int year, int day)
-		{
-			try { return Type.GetType($"{nameof(AdventOfCode)}.Year{year}.Day{day:00}"); }
-			catch { return null; }
 		}
 
 		private static DateTime? ParsePuzzleDate(string datestr)
@@ -88,9 +94,11 @@ namespace AdventOfCode
 			if (match.Groups["year"].Success)
 			{
 				year = int.Parse(match.Groups["year"].Value);
-				if (match.Groups["year"].Value.Length == 2) year += 2000;
+				if (match.Groups["year"].Value.Length == 2)
+					year += 2000;
 			}
-			else year = DateTime.Now.Year - (DateTime.Now.Month == 12 ? 0 : 1);
+			else
+				year = DateTime.Now.Year - (DateTime.Now.Month == 12 ? 0 : 1);
 
 			int day = int.Parse(match.Groups["day"].Value);
 
