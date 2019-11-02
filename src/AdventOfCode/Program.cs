@@ -77,9 +77,6 @@ namespace AdventOfCode
 			Console.WriteLine(solution);
 			Console.WriteLine();
 
-			if (!Console.IsInputRedirected)
-				Console.ReadKey(intercept: true);
-
 			return 0;
 		}
 

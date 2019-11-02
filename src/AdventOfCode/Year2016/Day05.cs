@@ -46,8 +46,8 @@ namespace AdventOfCode.Year2016
 					break;
 			}
 
-			Solution = pass.Aggregate(string.Empty, (s, c) => s + c);
-			return Solution;
+			SolutionPartTwo = pass.Aggregate(string.Empty, (s, c) => s + c);
+			return SolutionPartTwo;
 		}
 
 		private IEnumerable<(int Index, char Char)> GenerateChars(MD5 md5, int charPosition)
