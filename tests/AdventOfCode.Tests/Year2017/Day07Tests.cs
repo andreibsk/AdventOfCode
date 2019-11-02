@@ -1,8 +1,9 @@
 using AdventOfCode.Year2017;
-using Xunit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Tests.Year2017
 {
+	[TestClass]
 	public class Day07Tests : PuzzleTests<Day07>
 	{
 		private static readonly string[] s_input = new[]
@@ -22,12 +23,12 @@ namespace AdventOfCode.Tests.Year2017
 			"cntj (57)"
 		};
 
-		[Theory]
-		[InlineData("tknk")]
+		[TestMethod]
+		[DataRow("tknk")]
 		public void PartOneExample(string expected) => CalculatePartOne(s_input, expected);
 
-		[Theory]
-		[InlineData("60")]
+		[TestMethod]
+		[DataRow("60")]
 		public void PartTwoExample(string expected) => CalculatePartTwo(s_input, expected);
 	}
 }

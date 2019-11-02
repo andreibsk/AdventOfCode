@@ -1,4 +1,4 @@
-using Xunit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Tests
 {
@@ -13,7 +13,7 @@ namespace AdventOfCode.Tests
 
 			string solution = puzzle.CalculateSolution();
 
-			Assert.Equal(expected, solution);
+			Assert.AreEqual(expected, solution);
 		}
 
 		protected void CalculatePartTwo(string input, string expected) => CalculatePartTwo(new[] { input }, expected);
@@ -25,7 +25,7 @@ namespace AdventOfCode.Tests
 
 			string solution = puzzle.CalculateSolutionPartTwo();
 
-			Assert.Equal(expected, solution);
+			Assert.AreEqual(expected, solution);
 		}
 	}
 }
