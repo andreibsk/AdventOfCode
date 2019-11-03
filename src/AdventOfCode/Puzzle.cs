@@ -16,16 +16,6 @@ namespace AdventOfCode
 		public string? SolutionPartTwo { get; protected set; }
 		public abstract string Title { get; }
 
-		public abstract string? CalculateSolution();
-
-		public abstract string? CalculateSolutionPartTwo();
-
-		public static Type? GetType(DateTime date)
-		{
-			var type = Type.GetType($"{nameof(AdventOfCode)}.Year{date.Year:00}.Day{date.Day:00}");
-			return type?.IsSubclassOf(typeof(Puzzle)) == true ? type : null;
-		}
-
 		public static TPuzzle Construct<TPuzzle>(string input) where TPuzzle : Puzzle => Construct<TPuzzle>(new[] { input });
 
 		public static TPuzzle Construct<TPuzzle>(string[] input) where TPuzzle : Puzzle
@@ -40,5 +30,15 @@ namespace AdventOfCode
 
 			return (Puzzle)type.GetConstructor(new[] { typeof(string[]) })!.Invoke(new[] { input });
 		}
+
+		public static Type? GetType(DateTime date)
+		{
+			var type = Type.GetType($"{nameof(AdventOfCode)}.Year{date.Year:00}.Day{date.Day:00}");
+			return type?.IsSubclassOf(typeof(Puzzle)) == true ? type : null;
+		}
+
+		public abstract string? CalculateSolution();
+
+		public abstract string? CalculateSolutionPartTwo();
 	}
 }

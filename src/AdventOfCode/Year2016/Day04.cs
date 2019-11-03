@@ -57,6 +57,13 @@ namespace AdventOfCode.Year2016
 				return new Room(match.Groups["name"].Value, int.Parse(match.Groups["sector"].Value), match.Groups["checksum"].Value);
 			}
 
+			public string DecryptedName()
+			{
+				int len = 'z' - 'a' + 1;
+				int shift = SectorId % len;
+				return string.Concat(EncryptedName.Select(c => c == '-' ? ' ' : (char)((c - 'a' + shift) % len + 'a')));
+			}
+
 			public bool IsReal()
 			{
 				return Checksum == string.Concat(EncryptedName
@@ -66,13 +73,6 @@ namespace AdventOfCode.Year2016
 					.ThenBy(g => g.Key)
 					.Select(g => g.Key)
 					.Take(5));
-			}
-
-			public string DecryptedName()
-			{
-				int len = 'z' - 'a' + 1;
-				int shift = SectorId % len;
-				return string.Concat(EncryptedName.Select(c => c == '-' ? ' ' : (char)((c - 'a' + shift) % len + 'a')));
 			}
 		}
 	}

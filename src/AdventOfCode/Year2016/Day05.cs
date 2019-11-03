@@ -8,15 +8,15 @@ namespace AdventOfCode.Year2016
 {
 	public class Day05 : Puzzle
 	{
-		public override DateTime Date => new DateTime(2016, 12, 5);
-		public override string Title => "How About a Nice Game of Chess?";
-
 		private readonly string _doorId;
 
 		public Day05(string[] input) : base(input)
 		{
 			_doorId = input[0];
 		}
+
+		public override DateTime Date => new DateTime(2016, 12, 5);
+		public override string Title => "How About a Nice Game of Chess?";
 
 		public override string? CalculateSolution()
 		{

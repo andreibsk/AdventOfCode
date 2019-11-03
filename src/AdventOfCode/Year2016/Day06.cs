@@ -5,15 +5,15 @@ namespace AdventOfCode.Year2016
 {
 	public class Day06 : Puzzle
 	{
-		public override DateTime Date => new DateTime(2016, 12, 6);
-		public override string Title => "Signals and Noise";
-
 		private readonly string[] _messages;
 
 		public Day06(string[] input) : base(input)
 		{
 			_messages = input;
 		}
+
+		public override DateTime Date => new DateTime(2016, 12, 6);
+		public override string Title => "Signals and Noise";
 
 		public override string? CalculateSolution()
 		{

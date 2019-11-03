@@ -15,7 +15,7 @@ namespace AdventOfCode
 		public int X { get; set; }
 		public int Y { get; set; }
 
-		public static explicit operator (int X, int Y) (Position p) => (p.X, p.Y);
+		public static explicit operator (int X, int Y)(Position p) => (p.X, p.Y);
 
 		public static implicit operator Position((int x, int y) p) => new Position(p.x, p.y);
 

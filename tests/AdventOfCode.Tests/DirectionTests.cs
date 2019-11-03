@@ -6,20 +6,6 @@ namespace AdventOfCode.Tests
 	public class DirectionTests
 	{
 		[TestMethod]
-		public void ToRight()
-		{
-			Assert.AreEqual(Direction.East, Direction.North.ToRight());
-			Assert.AreEqual(Direction.South, Direction.East.ToRight());
-			Assert.AreEqual(Direction.West, Direction.South.ToRight());
-			Assert.AreEqual(Direction.North, Direction.West.ToRight());
-
-			Assert.AreEqual(Direction.SouthEast, Direction.NorthEast.ToRight());
-			Assert.AreEqual(Direction.SouthWest, Direction.SouthEast.ToRight());
-			Assert.AreEqual(Direction.NorthWest, Direction.SouthWest.ToRight());
-			Assert.AreEqual(Direction.NorthEast, Direction.NorthWest.ToRight());
-		}
-
-		[TestMethod]
 		public void ToLeft()
 		{
 			Assert.AreEqual(Direction.West, Direction.North.ToLeft());
@@ -34,16 +20,17 @@ namespace AdventOfCode.Tests
 		}
 
 		[TestMethod]
-		public void ToSlightRight()
+		public void ToRight()
 		{
-			Assert.AreEqual(Direction.NorthEast, Direction.North.ToSlightRight());
-			Assert.AreEqual(Direction.East, Direction.NorthEast.ToSlightRight());
-			Assert.AreEqual(Direction.SouthEast, Direction.East.ToSlightRight());
-			Assert.AreEqual(Direction.South, Direction.SouthEast.ToSlightRight());
-			Assert.AreEqual(Direction.SouthWest, Direction.South.ToSlightRight());
-			Assert.AreEqual(Direction.West, Direction.SouthWest.ToSlightRight());
-			Assert.AreEqual(Direction.NorthWest, Direction.West.ToSlightRight());
-			Assert.AreEqual(Direction.North, Direction.NorthWest.ToSlightRight());
+			Assert.AreEqual(Direction.East, Direction.North.ToRight());
+			Assert.AreEqual(Direction.South, Direction.East.ToRight());
+			Assert.AreEqual(Direction.West, Direction.South.ToRight());
+			Assert.AreEqual(Direction.North, Direction.West.ToRight());
+
+			Assert.AreEqual(Direction.SouthEast, Direction.NorthEast.ToRight());
+			Assert.AreEqual(Direction.SouthWest, Direction.SouthEast.ToRight());
+			Assert.AreEqual(Direction.NorthWest, Direction.SouthWest.ToRight());
+			Assert.AreEqual(Direction.NorthEast, Direction.NorthWest.ToRight());
 		}
 
 		[TestMethod]
@@ -57,6 +44,19 @@ namespace AdventOfCode.Tests
 			Assert.AreEqual(Direction.South, Direction.SouthWest.ToSlightLeft());
 			Assert.AreEqual(Direction.SouthWest, Direction.West.ToSlightLeft());
 			Assert.AreEqual(Direction.West, Direction.NorthWest.ToSlightLeft());
+		}
+
+		[TestMethod]
+		public void ToSlightRight()
+		{
+			Assert.AreEqual(Direction.NorthEast, Direction.North.ToSlightRight());
+			Assert.AreEqual(Direction.East, Direction.NorthEast.ToSlightRight());
+			Assert.AreEqual(Direction.SouthEast, Direction.East.ToSlightRight());
+			Assert.AreEqual(Direction.South, Direction.SouthEast.ToSlightRight());
+			Assert.AreEqual(Direction.SouthWest, Direction.South.ToSlightRight());
+			Assert.AreEqual(Direction.West, Direction.SouthWest.ToSlightRight());
+			Assert.AreEqual(Direction.NorthWest, Direction.West.ToSlightRight());
+			Assert.AreEqual(Direction.North, Direction.NorthWest.ToSlightRight());
 		}
 	}
 }
