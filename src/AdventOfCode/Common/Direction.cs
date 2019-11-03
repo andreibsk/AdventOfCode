@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 
-namespace AdventOfCode
+namespace AdventOfCode.Common
 {
 	public struct Direction
 	{

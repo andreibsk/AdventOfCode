@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Text;
+using AdventOfCode.Common;
 
 namespace AdventOfCode.Year2016
 {

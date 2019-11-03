@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace AdventOfCode
+namespace AdventOfCode.Common
 {
-	public static class Util
+	public static class Extensions
 	{
 		public static IEnumerable<IEnumerable<T>> AsBatches<T>(this IList<T> list, int size)
 		{
@@ -36,7 +36,7 @@ namespace AdventOfCode
 				return default!;
 		}
 
-		public static T ElementAtOrDefault<T>(this T[,] array, Position p) => ElementAtOrDefault(array, p.Y, p.X);
+		public static T ElementAtOrDefault<T>(this T[,] array, Position p) => array.ElementAtOrDefault(p.Y, p.X);
 
 		public static int IndexOfMaxValue<T>(this IList<T> list) where T : IComparable<T>
 		{
@@ -57,16 +57,17 @@ namespace AdventOfCode
 			var lines = new List<string>();
 			string? line;
 			while ((line = reader.ReadLine()) != null)
-			{
-				if (line.Length != 0) lines.Add(line);
-				else break;
-			}
+				if (line.Length != 0)
+					lines.Add(line);
+				else
+					break;
 			return lines.ToArray();
 		}
 
 		public static int ToDigit(this char c)
 		{
-			if (!char.IsDigit(c)) throw new ArgumentOutOfRangeException(nameof(c));
+			if (!char.IsDigit(c))
+				throw new ArgumentOutOfRangeException(nameof(c));
 			return c - '0';
 		}
 	}

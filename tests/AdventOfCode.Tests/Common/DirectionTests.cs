@@ -1,6 +1,7 @@
+using AdventOfCode.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AdventOfCode.Tests
+namespace AdventOfCode.Tests.Common
 {
 	[TestClass]
 	public class DirectionTests

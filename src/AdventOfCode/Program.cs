@@ -2,6 +2,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
+using AdventOfCode.Common;
 
 namespace AdventOfCode
 {
@@ -82,8 +83,6 @@ namespace AdventOfCode
 		private static int ExitError(string message)
 		{
 			Console.WriteLine(message);
-			if (!Console.IsInputRedirected)
-				Console.ReadKey(intercept: true);
 			return -1;
 		}
 

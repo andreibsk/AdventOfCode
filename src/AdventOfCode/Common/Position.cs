@@ -1,6 +1,6 @@
 using System;
 
-namespace AdventOfCode
+namespace AdventOfCode.Common
 {
 	public struct Position
 	{
