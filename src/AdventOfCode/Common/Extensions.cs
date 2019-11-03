@@ -72,6 +72,18 @@ namespace AdventOfCode.Common
 			return lines.ToArray();
 		}
 
+		public static IEnumerable<T> Repeat<T>(this IEnumerable<T> source) => Repeat(source, count: int.MaxValue);
+
+		public static IEnumerable<T> Repeat<T>(this IEnumerable<T> source, int count)
+		{
+			if (count < 0)
+				throw new ArgumentException(nameof(count));
+
+			while (count-- > 0)
+				foreach (T value in source)
+					yield return value;
+		}
+
 		public static int ToDigit(this char c)
 		{
 			if (!char.IsDigit(c))
