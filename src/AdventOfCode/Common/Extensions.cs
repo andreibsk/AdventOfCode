@@ -18,6 +18,14 @@ namespace AdventOfCode.Common
 			}
 		}
 
+		public static IEnumerable<IEnumerable<T>> AsRowEnumerable<T>(this T[,] array)
+		{
+			int len = array.GetLength(0);
+
+			for (int i = 0; i < len; i++)
+				yield return new ArrayLine<T>(array, ArrayLine.Direction.Row, index: i);
+		}
+
 		public static T ElementAtOrDefault<T>(this IList<T> collection, int index)
 		{
 			return index < collection.Count && index >= 0 ? collection[index] : default;
@@ -69,6 +77,17 @@ namespace AdventOfCode.Common
 			if (!char.IsDigit(c))
 				throw new ArgumentOutOfRangeException(nameof(c));
 			return c - '0';
+		}
+
+		public static int WriteToArray<T>(this IEnumerable<T> source, IIndexable<T> array) => WriteToArray(source, array, index: 0);
+
+		public static int WriteToArray<T>(this IEnumerable<T> source, IIndexable<T> destination, int index)
+		{
+			int i = index;
+			foreach (T value in source)
+				destination[i++] = value;
+
+			return i - index;
 		}
 	}
 }
