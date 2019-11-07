@@ -1,20 +1,26 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace AdventOfCode.Common
 {
 	public static class Extensions
 	{
-		public static IEnumerable<IEnumerable<T>> AsBatches<T>(this IList<T> list, int size)
+		public static IEnumerable<IEnumerable<T>> AsBatches<T>(this IEnumerable<T> source, int size)
 		{
-			return Enumerable.Range(0, (list.Count - 1) / size + 1).Select(i => BatchAt(i * size));
+			IEnumerator<T> e = source.GetEnumerator();
 
-			IEnumerable<T> BatchAt(int index)
+			while (e.MoveNext())
+				yield return NextBatch();
+
+			IEnumerable<T> NextBatch()
 			{
-				for (int i = index; i < index + size && i < list.Count; i++)
-					yield return list[i];
+				int i = size;
+				do
+				{
+					yield return e.Current;
+				}
+				while (--i > 0 && e.MoveNext());
 			}
 		}
 
@@ -84,11 +90,58 @@ namespace AdventOfCode.Common
 					yield return value;
 		}
 
+		public static T[,] To2DArray<T>(this IEnumerable<IEnumerable<T>> source, int len0, int len1)
+		{
+			var array = new T[len0, len1];
+
+			IEnumerator<IEnumerable<T>> e0 = source.GetEnumerator();
+			for (int i = 0; i < len0; i++)
+			{
+				if (!e0.MoveNext())
+					throw new FormatException();
+
+				IEnumerator<T> e1 = e0.Current.GetEnumerator();
+				for (int j = 0; j < len1; j++)
+				{
+					if (!e1.MoveNext())
+						throw new FormatException();
+
+					array[i, j] = e1.Current;
+				}
+			}
+
+			return array;
+		}
+
 		public static int ToDigit(this char c)
 		{
 			if (!char.IsDigit(c))
 				throw new ArgumentOutOfRangeException(nameof(c));
 			return c - '0';
+		}
+
+		public static bool[] ToHexBits(this char hexChar)
+		{
+			return char.ToUpper(hexChar) switch
+			{
+				'0' => new[] { false, false, false, false },
+				'1' => new[] { false, false, false, true },
+				'2' => new[] { false, false, true, false },
+				'3' => new[] { false, false, true, true },
+				'4' => new[] { false, true, false, false },
+				'5' => new[] { false, true, false, true },
+				'6' => new[] { false, true, true, false },
+				'7' => new[] { false, true, true, true },
+				'8' => new[] { true, false, false, false },
+				'9' => new[] { true, false, false, true },
+				'A' => new[] { true, false, true, false },
+				'B' => new[] { true, false, true, true },
+				'C' => new[] { true, true, false, false },
+				'D' => new[] { true, true, false, true },
+				'E' => new[] { true, true, true, false },
+				'F' => new[] { true, true, true, true },
+				_ => throw new FormatException()
+			};
 		}
 
 		public static int WriteToArray<T>(this IEnumerable<T> source, IIndexable<T> array) => WriteToArray(source, array, index: 0);

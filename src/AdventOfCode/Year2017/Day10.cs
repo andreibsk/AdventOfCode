@@ -20,6 +20,25 @@ namespace AdventOfCode.Year2017
 		public override DateTime Date => new DateTime(2017, 12, 10);
 		public override string Title => "Knot Hash";
 
+		public static string GetKnotHash(string input, int listLength = 256)
+		{
+			int[] lengths = input.Select(c => (int)c)
+				.Concat(new[] { 17, 31, 73, 47, 23 }).ToArray();
+			int[] list = Enumerable.Range(0, listLength).ToArray();
+			int skip = 0;
+			int pos = 0;
+
+			for (int i = 0; i < 64; i++)
+				foreach (int length in lengths)
+				{
+					Reverse(list, pos, length);
+					pos = (pos + length + skip) % list.Length;
+					skip++;
+				}
+
+			return string.Concat(list.AsBatches(16).Select(batch => batch.Aggregate((a, b) => a ^ b).ToString("x2")));
+		}
+
 		public override string? CalculateSolution()
 		{
 			int[] list = Enumerable.Range(0, _listLength).ToArray();
@@ -39,26 +58,11 @@ namespace AdventOfCode.Year2017
 
 		public override string? CalculateSolutionPartTwo()
 		{
-			int[] lengths = string.Join(',', _lengths.Select(l => l.ToString())).Select(c => (int)c)
-				.Concat(new[] { 17, 31, 73, 47, 23 }).ToArray();
-			int[] list = Enumerable.Range(0, _listLength).ToArray();
-			int skip = 0;
-			int pos = 0;
-
-			for (int i = 0; i < 64; i++)
-				foreach (int length in lengths)
-				{
-					Reverse(list, pos, length);
-					pos = (pos + length + skip) % list.Length;
-					skip++;
-				}
-
-			SolutionPartTwo = string.Concat(
-				list.AsBatches(16).Select(batch => batch.Aggregate((a, b) => a ^ b).ToString("x2")));
+			SolutionPartTwo = GetKnotHash(string.Join(',', _lengths.Select(l => l.ToString())), _listLength);
 			return SolutionPartTwo;
 		}
 
-		private void Reverse(int[] a, int start, int length)
+		private static void Reverse(int[] a, int start, int length)
 		{
 			int t, l, r;
 			for (int i = 0; i < length / 2; i++)
