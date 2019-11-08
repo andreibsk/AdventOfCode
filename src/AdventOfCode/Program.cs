@@ -34,10 +34,22 @@ namespace AdventOfCode
 
 			// Read input.
 			SetConsoleInputBuffer(4096);
-			Console.WriteLine("Puzzle input:");
+			Console.WriteLine("Puzzle input [Leave empty to read from file]:");
 			string[] input = Console.In.ReadToEmptyLine();
 			if (input == null || input.Length == 0)
-				return ExitError("No input provided.");
+			{
+				string inputFilePath = puzzleType.FullName!
+					.Replace(nameof(AdventOfCode), "Inputs")
+					.Replace('.', Path.DirectorySeparatorChar)
+					+ ".txt";
+				Console.WriteLine("Attempting to read input from file: " + inputFilePath);
+				if (!File.Exists(inputFilePath))
+					return ExitError("No input provided.");
+
+				input = File.ReadAllLines(inputFilePath);
+				if (input == null || input.Length == 0 || input.Length == 1 && string.IsNullOrEmpty(input[0]))
+					return ExitError("File has no input.");
+			}
 
 			// Create the puzzle.
 			Puzzle puzzle;
