@@ -60,11 +60,12 @@ namespace AdventOfCode.Common.Extensions
 			if (n < 0)
 				n = array.Length + n;
 
-			array
+			var values = array
 				.Concat(array)
 				.Skip(array.Length - n)
-				.Take(array.Length)
-				.WriteToArray(array);
+				.Take(array.Length).ToList();
+
+			values.WriteToArray(array);
 		}
 	}
 }
