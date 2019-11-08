@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using AdventOfCode.Common;
+using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Year2016
 {

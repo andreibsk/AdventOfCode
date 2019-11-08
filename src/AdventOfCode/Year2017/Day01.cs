@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using AdventOfCode.Common;
+using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Year2017
 {
@@ -11,7 +11,7 @@ namespace AdventOfCode.Year2017
 		public Day01(string[] input) : base(input)
 		{
 			if (input.Length != 1 || input[0].Length < 1) throw new FormatException(nameof(input));
-			_digits = input[0].ToCharArray().Select(Extensions.ToDigit).ToArray();
+			_digits = input[0].ToCharArray().Select(ValueExtensions.ToDigit).ToArray();
 		}
 
 		public override DateTime Date => new DateTime(2017, 12, 1);

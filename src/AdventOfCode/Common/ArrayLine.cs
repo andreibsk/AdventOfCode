@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace AdventOfCode.Common
 {
 	public abstract class ArrayLine
@@ -35,19 +33,6 @@ namespace AdventOfCode.Common
 		{
 			get => _source[_direction == Direction.Row ? _index1 : index2, _direction == Direction.Row ? index2 : _index1];
 			set => _source[_direction == Direction.Row ? _index1 : index2, _direction == Direction.Row ? index2 : _index1] = value;
-		}
-
-		public void Rotate(int n)
-		{
-			n %= Length;
-
-			if (n == 0)
-				return;
-			if (n < 0)
-				n = Length + n;
-
-			var x = this.Concat(this).Skip(Length - n).Take(Length).ToArray();
-			x.WriteToArray(this);
 		}
 	}
 }
