@@ -7,24 +7,33 @@ namespace AdventOfCode.Common
 	public struct Direction
 	{
 		public static readonly Direction None = new Direction(0, 0);
+		private static Mode s_mode;
+
+		private readonly int _deltaX;
+		private readonly int _deltaY;
 
 		static Direction()
 		{
 			All = (new[] { North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest }).ToImmutableArray();
+			NESW = (new[] { North, East, South, West }).ToImmutableArray();
 		}
 
 		private Direction(int dx, int dy)
 		{
-			DeltaX = Math.Max(-1, Math.Min(dx, 1));
-			DeltaY = Math.Max(-1, Math.Min(dy, 1));
+			_deltaX = Math.Max(-1, Math.Min(dx, 1));
+			_deltaY = Math.Max(-1, Math.Min(dy, 1));
 		}
 
-		/// <summary>
-		/// Enumerates all directions starting with North and going clockwise.
-		/// </summary>
+		public enum Mode
+		{
+			Screen,
+			Array
+		}
+
 		public static IEnumerable<Direction> All { get; }
 
 		public static Direction East { get; } = new Direction(1, 0);
+		public static IEnumerable<Direction> NESW { get; }
 		public static Direction North { get; } = new Direction(0, -1);
 		public static Direction NorthEast { get; } = new Direction(1, -1);
 		public static Direction NorthWest { get; } = new Direction(-1, -1);
@@ -33,8 +42,8 @@ namespace AdventOfCode.Common
 		public static Direction SouthWest { get; } = new Direction(-1, 1);
 		public static Direction West { get; } = new Direction(-1, 0);
 
-		public int DeltaX { get; }
-		public int DeltaY { get; }
+		public int DeltaX => s_mode == Mode.Screen ? _deltaX : _deltaY;
+		public int DeltaY => s_mode == Mode.Screen ? _deltaY : _deltaX;
 
 		public static bool operator !=(Direction l, Direction r) => !(l == r);
 
@@ -62,6 +71,8 @@ namespace AdventOfCode.Common
 			}
 		}
 
+		public static void SetMode(Mode mode) => s_mode = mode;
+
 		public override bool Equals(object? obj)
 		{
 			if (!(obj is Direction d))
@@ -69,15 +80,15 @@ namespace AdventOfCode.Common
 			return d.DeltaX == DeltaX && d.DeltaY == DeltaY;
 		}
 
-		public override int GetHashCode() => 3 * DeltaX + DeltaY;
+		public override int GetHashCode() => 3 * _deltaX + _deltaY;
 
-		public Direction ToLeft() => new Direction(DeltaY, -DeltaX);
+		public Direction ToLeft() => new Direction(_deltaY, -_deltaX);
 
-		public Direction ToRight() => new Direction(-DeltaY, DeltaX);
+		public Direction ToRight() => new Direction(-_deltaY, _deltaX);
 
-		public Direction ToSlightLeft() => new Direction(DeltaX + DeltaY, DeltaY - DeltaX);
+		public Direction ToSlightLeft() => new Direction(_deltaX + _deltaY, _deltaY - _deltaX);
 
-		public Direction ToSlightRight() => new Direction(DeltaX - DeltaY, DeltaY + DeltaX);
+		public Direction ToSlightRight() => new Direction(_deltaX - _deltaY, _deltaY + _deltaX);
 
 		public override string ToString()
 		{
