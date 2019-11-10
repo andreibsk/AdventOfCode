@@ -81,7 +81,7 @@ namespace AdventOfCode.Year2016
 
 			private static void Rotate(bool[,] screen, int pos, int n, bool row)
 			{
-				var line = new ArrayLine<bool>(screen, row ? ArrayLine.Direction.Row : ArrayLine.Direction.Column, pos);
+				ArrayLine<bool> line = row ? screen.GetRow(pos) : screen.GetColumn(pos);
 				line.Rotate(n);
 			}
 		}

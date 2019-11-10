@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace AdventOfCode.Common.Extensions
@@ -10,8 +11,8 @@ namespace AdventOfCode.Common.Extensions
 		{
 			int len = array.GetLength(0);
 
-			for (int i = 0; i < len; i++)
-				yield return new ArrayLine<T>(array, ArrayLine.Direction.Row, index: i);
+			for (int index = 0; index < len; index++)
+				yield return array.GetRow(index);
 		}
 
 		public static T ElementAtOrDefault<T>(this T[] array, int index)
@@ -35,6 +36,37 @@ namespace AdventOfCode.Common.Extensions
 		public static T ElementAtOrDefault<T>(this IList<T> collection, int index)
 		{
 			return index < collection.Count && index >= 0 ? collection[index] : default;
+		}
+
+		public static ArrayLine<T> GetColumn<T>(this T[,] array, int index)
+		{
+			return new ArrayLine<T>(array, ArrayLine.Direction.Column, index);
+		}
+
+		public static ArrayLine<T> GetRow<T>(this T[,] array, int index)
+		{
+			return new ArrayLine<T>(array, ArrayLine.Direction.Row, index);
+		}
+
+		public static T GetValue<T>(this T[,] array, Position p)
+		{
+			return array[p.X, p.Y];
+		}
+
+		public static bool HasInRange<T>(this T[,] array, Position p)
+		{
+			return p.X >= 0 && p.Y >= 0 && p.X < array.GetLength(0) && p.Y < array.GetLength(1);
+		}
+
+		public static int IndexOf<T>(this IIndexable<T> array, T value)
+		{
+			EqualityComparer<T> comparer = EqualityComparer<T>.Default;
+
+			for (int i = 0; i < array.Length; i++)
+				if (comparer.Equals(array[i], value))
+					return i;
+
+			return -1;
 		}
 
 		public static int IndexOfMaxValue<T>(this IList<T> list) where T : IComparable<T>
@@ -66,6 +98,20 @@ namespace AdventOfCode.Common.Extensions
 				.Take(array.Length).ToList();
 
 			values.WriteToArray(array);
+		}
+
+		public static bool TryGetValue<T>(this T[,] array, Position p, [MaybeNullWhen(false)] out T value)
+		{
+			if (array.HasInRange(p))
+			{
+				value = array[p.X, p.Y];
+				return true;
+			}
+			else
+			{
+				value = default!;
+				return false;
+			}
 		}
 	}
 }

@@ -62,23 +62,29 @@ namespace AdventOfCode.Common.Extensions
 
 		public static T[,] To2DArray<T>(this IEnumerable<IEnumerable<T>> source, int len0, int len1)
 		{
+			using IEnumerator<IEnumerable<T>> e0 = source.GetEnumerator();
 			var array = new T[len0, len1];
 
-			using IEnumerator<IEnumerable<T>> e0 = source.GetEnumerator();
-			for (int i = 0; i < len0; i++)
+			int i;
+			for (i = 0; i < len0 && e0.MoveNext(); i++)
 			{
-				if (!e0.MoveNext())
-					throw new FormatException();
+				if (e0.Current == null)
+					throw new FormatException("Rows do not match");
 
 				using IEnumerator<T> e1 = e0.Current.GetEnumerator();
-				for (int j = 0; j < len1; j++)
-				{
-					if (!e1.MoveNext())
-						throw new FormatException();
 
+				int j;
+				for (j = 0; j < len1 && e1.MoveNext(); j++)
+				{
 					array[i, j] = e1.Current;
 				}
+
+				if (j != len1 || e1.MoveNext())
+					throw new FormatException("Columns do not match.");
 			}
+
+			if (i != len0 || e0.MoveNext())
+				throw new FormatException("Rows do not match.");
 
 			return array;
 		}
