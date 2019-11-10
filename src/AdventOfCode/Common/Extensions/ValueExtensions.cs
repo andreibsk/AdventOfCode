@@ -34,5 +34,10 @@ namespace AdventOfCode.Common.Extensions
 				_ => throw new FormatException()
 			};
 		}
+
+		public static long? ToLongOrDefault(this string? s)
+		{
+			return long.TryParse(s, out long value) ? value : default(long?);
+		}
 	}
 }
