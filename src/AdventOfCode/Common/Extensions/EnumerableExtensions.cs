@@ -7,7 +7,7 @@ namespace AdventOfCode.Common.Extensions
 	{
 		public static IEnumerable<IEnumerable<T>> AsBatches<T>(this IEnumerable<T> source, int size)
 		{
-			IEnumerator<T> e = source.GetEnumerator();
+			using IEnumerator<T> e = source.GetEnumerator();
 
 			while (e.MoveNext())
 				yield return NextBatch();
@@ -23,7 +23,32 @@ namespace AdventOfCode.Common.Extensions
 			}
 		}
 
-		public static IEnumerable<T> Repeat<T>(this IEnumerable<T> source) => Repeat(source, count: int.MaxValue);
+		public static void Deconstruct<T>(this IEnumerable<T> source, out T value1, out T value2, out T value3)
+		{
+			using IEnumerator<T> e = source.GetEnumerator();
+
+			e.MoveNext();
+			value1 = e.Current;
+			e.MoveNext();
+			value2 = e.Current;
+			e.MoveNext();
+			value3 = e.Current;
+		}
+
+		public static void DeconstructValuesOrDefault<T>(this IEnumerable<T> source, out T? value1, out T? value2, out T? value3)
+			where T : class
+		{
+			using IEnumerator<T> e = source.GetEnumerator();
+
+			value1 = e.MoveNext() ? e.Current : default;
+			value2 = e.MoveNext() ? e.Current : default;
+			value3 = e.MoveNext() ? e.Current : default;
+		}
+
+		public static IEnumerable<T> Repeat<T>(this IEnumerable<T> source)
+		{
+			return Repeat(source, count: int.MaxValue);
+		}
 
 		public static IEnumerable<T> Repeat<T>(this IEnumerable<T> source, int count)
 		{
@@ -39,13 +64,13 @@ namespace AdventOfCode.Common.Extensions
 		{
 			var array = new T[len0, len1];
 
-			IEnumerator<IEnumerable<T>> e0 = source.GetEnumerator();
+			using IEnumerator<IEnumerable<T>> e0 = source.GetEnumerator();
 			for (int i = 0; i < len0; i++)
 			{
 				if (!e0.MoveNext())
 					throw new FormatException();
 
-				IEnumerator<T> e1 = e0.Current.GetEnumerator();
+				using IEnumerator<T> e1 = e0.Current.GetEnumerator();
 				for (int j = 0; j < len1; j++)
 				{
 					if (!e1.MoveNext())
