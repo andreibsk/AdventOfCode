@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Common
 {
-	public struct Direction
+	public struct Direction : IVector2
 	{
 		public static readonly Direction None = new Direction(0, 0);
 		private static Mode s_mode;
@@ -42,14 +43,14 @@ namespace AdventOfCode.Common
 		public static Direction SouthWest { get; } = new Direction(-1, 1);
 		public static Direction West { get; } = new Direction(-1, 0);
 
-		public int DeltaX => s_mode == Mode.Screen ? _deltaX : _deltaY;
-		public int DeltaY => s_mode == Mode.Screen ? _deltaY : _deltaX;
+		public int X => s_mode == Mode.Screen ? _deltaX : _deltaY;
+		public int Y => s_mode == Mode.Screen ? _deltaY : _deltaX;
 
 		public static bool operator !=(Direction l, Direction r) => !(l == r);
 
-		public static Position operator *(Direction d, int distance) => (d.DeltaX * distance, d.DeltaY * distance);
+		public static IVector2 operator *(Direction d, int distance) => new Vector2(d.X * distance, d.Y * distance);
 
-		public static bool operator ==(Direction l, Direction r) => l.DeltaX == r.DeltaX && l.DeltaY == r.DeltaY;
+		public static bool operator ==(Direction l, Direction r) => l.X == r.X && l.Y == r.Y;
 
 		public static Direction Parse(char c)
 		{
@@ -77,10 +78,10 @@ namespace AdventOfCode.Common
 		{
 			if (!(obj is Direction d))
 				return false;
-			return d.DeltaX == DeltaX && d.DeltaY == DeltaY;
+			return d.X == X && d.Y == Y;
 		}
 
-		public override int GetHashCode() => 3 * _deltaX + _deltaY;
+		public override int GetHashCode() => _deltaX.CombineHashCode(_deltaY);
 
 		public Direction ToLeft() => new Direction(_deltaY, -_deltaX);
 
@@ -92,7 +93,7 @@ namespace AdventOfCode.Common
 
 		public override string ToString()
 		{
-			string s = $"ΔX={DeltaX}, ΔY={DeltaY}, ";
+			string s = $"ΔX={X}, ΔY={Y}, ";
 
 			if (Equals(East)) return s + nameof(East);
 			else if (Equals(North)) return s + nameof(North);

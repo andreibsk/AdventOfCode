@@ -38,7 +38,7 @@ namespace AdventOfCode.Year2017
 				else if (c != '|' && c != '-')
 					break;
 
-				pos.Offset(direction, 1);
+				pos += direction;
 				_steps++;
 			}
 

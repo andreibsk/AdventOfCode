@@ -42,7 +42,7 @@ namespace AdventOfCode.Year2017
 			while (true)
 			{
 				// Go forward.
-				pos.Offset(direction, 1);
+				pos += direction;
 				c--;
 
 				// Calculate the number.

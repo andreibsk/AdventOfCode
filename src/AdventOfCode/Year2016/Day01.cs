@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AdventOfCode.Common;
+using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Year2016
 {
@@ -33,7 +34,7 @@ namespace AdventOfCode.Year2016
 			foreach ((char turnDirection, int distance) in _sequence)
 			{
 				direction = turnDirection == 'R' ? direction.ToRight() : direction.ToLeft();
-				pos.Offset(direction, distance);
+				pos += direction * distance;
 			}
 
 			Solution = pos.BlockDistanceTo(Position.Zero).ToString();

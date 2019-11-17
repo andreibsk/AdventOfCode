@@ -4,6 +4,11 @@ namespace AdventOfCode.Common.Extensions
 {
 	public static class ValueExtensions
 	{
+		public static int CombineHashCode(this int c1, int c2)
+		{
+			return ((c1 << 5) + c1) ^ c2;
+		}
+
 		public static int ToDigit(this char c)
 		{
 			if (!char.IsDigit(c))
