@@ -6,9 +6,11 @@ namespace AdventOfCode.Tests
 	{
 		protected void CalculatePartOne(string input, string expected) => CalculatePartOne(new[] { input }, expected);
 
-		protected void CalculatePartOne(string[] input, string expected)
+		protected void CalculatePartOne(string[] input, string expected) => CalculatePartOne(input, expected, config: null);
+
+		protected void CalculatePartOne(string[] input, string expected, string? config)
 		{
-			TPuzzle puzzle = Puzzle.Construct<TPuzzle>(input);
+			TPuzzle puzzle = Puzzle.Construct<TPuzzle>(input, config);
 
 			string? solution = puzzle.CalculateSolution();
 
@@ -17,9 +19,11 @@ namespace AdventOfCode.Tests
 
 		protected void CalculatePartTwo(string input, string expected) => CalculatePartTwo(new[] { input }, expected);
 
-		protected void CalculatePartTwo(string[] input, string expected)
+		protected void CalculatePartTwo(string[] input, string expected) => CalculatePartTwo(input, expected, config: null);
+
+		protected void CalculatePartTwo(string[] input, string expected, string? config)
 		{
-			TPuzzle puzzle = Puzzle.Construct<TPuzzle>(input);
+			TPuzzle puzzle = Puzzle.Construct<TPuzzle>(input, config);
 
 			string? solution = puzzle.CalculateSolutionPartTwo();
 
