@@ -23,6 +23,16 @@ namespace AdventOfCode.Common.Extensions
 			}
 		}
 
+		public static void Deconstruct<T>(this IEnumerable<T> source, out T value1, out T value2)
+		{
+			using IEnumerator<T> e = source.GetEnumerator();
+
+			e.MoveNext();
+			value1 = e.Current;
+			e.MoveNext();
+			value2 = e.Current;
+		}
+
 		public static void Deconstruct<T>(this IEnumerable<T> source, out T value1, out T value2, out T value3)
 		{
 			using IEnumerator<T> e = source.GetEnumerator();
@@ -45,6 +55,15 @@ namespace AdventOfCode.Common.Extensions
 			value3 = e.MoveNext() ? e.Current : default;
 		}
 
+		public static IEnumerable<TSource> Distinct<TSource, TKey>(this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
+		{
+			var keys = new HashSet<TKey>();
+
+			foreach (TSource element in source)
+				if (keys.Add(keySelector(element)))
+					yield return element;
+		}
+
 		public static IEnumerable<T> Repeat<T>(this IEnumerable<T> source)
 		{
 			return Repeat(source, count: int.MaxValue);
@@ -58,35 +77,6 @@ namespace AdventOfCode.Common.Extensions
 			while (count-- > 0)
 				foreach (T value in source)
 					yield return value;
-		}
-
-		public static T[,] To2DArray<T>(this IEnumerable<IEnumerable<T>> source, int len0, int len1)
-		{
-			using IEnumerator<IEnumerable<T>> e0 = source.GetEnumerator();
-			var array = new T[len0, len1];
-
-			int i;
-			for (i = 0; i < len0 && e0.MoveNext(); i++)
-			{
-				if (e0.Current == null)
-					throw new FormatException("Rows do not match");
-
-				using IEnumerator<T> e1 = e0.Current.GetEnumerator();
-
-				int j;
-				for (j = 0; j < len1 && e1.MoveNext(); j++)
-				{
-					array[i, j] = e1.Current;
-				}
-
-				if (j != len1 || e1.MoveNext())
-					throw new FormatException("Columns do not match.");
-			}
-
-			if (i != len0 || e0.MoveNext())
-				throw new FormatException("Rows do not match.");
-
-			return array;
 		}
 
 		public static int WriteToArray<T>(this IEnumerable<T> source, IIndexable<T> array)

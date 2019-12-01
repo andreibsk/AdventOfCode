@@ -1,11 +1,11 @@
-using AdventOfCode.Common;
 using AdventOfCode.Common.Extensions;
+using AdventOfCode.Common.Internal;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Tests.Common
 {
 	[TestClass]
-	public class LineTests
+	public class ArrayLineTests
 	{
 		private readonly int[,] _data = new int[,]
 		{
@@ -39,7 +39,7 @@ namespace AdventOfCode.Tests.Common
 		{
 			var line = new ArrayLine<int>(_data, ArrayLine.Direction.Column, index: 1);
 
-			line.Rotate(1);
+			line.RotateValues(1);
 
 			Assert.AreEqual(14, line[0]);
 			Assert.AreEqual(8, line[2]);
@@ -50,7 +50,7 @@ namespace AdventOfCode.Tests.Common
 		{
 			var line = new ArrayLine<int>(_data, ArrayLine.Direction.Column, index: 1);
 
-			line.Rotate(2);
+			line.RotateValues(2);
 
 			Assert.AreEqual(8, line[0]);
 			Assert.AreEqual(2, line[2]);
@@ -61,7 +61,7 @@ namespace AdventOfCode.Tests.Common
 		{
 			var line = new ArrayLine<int>(_data, ArrayLine.Direction.Row, index: 1);
 
-			line.Rotate(5);
+			line.RotateValues(5);
 
 			Assert.AreEqual(8, line[0]);
 			Assert.AreEqual(7, line[5]);
@@ -72,7 +72,7 @@ namespace AdventOfCode.Tests.Common
 		{
 			var line = new ArrayLine<int>(_data, ArrayLine.Direction.Row, index: 1);
 
-			line.Rotate(1);
+			line.RotateValues(1);
 
 			Assert.AreEqual(12, line[0]);
 			Assert.AreEqual(11, line[5]);

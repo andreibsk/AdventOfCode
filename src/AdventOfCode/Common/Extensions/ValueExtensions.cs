@@ -9,6 +9,13 @@ namespace AdventOfCode.Common.Extensions
 			return ((c1 << 5) + c1) ^ c2;
 		}
 
+		public static int SetBitsCount(this int i)
+		{
+			i -= (i >> 1) & 0x55555555;
+			i = (i & 0x33333333) + ((i >> 2) & 0x33333333);
+			return (((i + (i >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24;
+		}
+
 		public static int ToDigit(this char c)
 		{
 			if (!char.IsDigit(c))

@@ -1,6 +1,6 @@
-namespace AdventOfCode.Common
+namespace AdventOfCode.Common.Internal
 {
-	public abstract class ArrayLine
+	internal abstract class ArrayLine
 	{
 		protected readonly Direction _direction;
 		protected readonly int _index1;
@@ -18,7 +18,7 @@ namespace AdventOfCode.Common
 		}
 	}
 
-	public class ArrayLine<T> : ArrayLine, IIndexable<T>
+	internal class ArrayLine<T> : ArrayLine, IIndexable<T>
 	{
 		private readonly T[,] _source;
 

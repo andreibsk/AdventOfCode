@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using AdventOfCode.Common.Internal;
 
 namespace AdventOfCode.Common.Extensions
 {
@@ -38,14 +39,14 @@ namespace AdventOfCode.Common.Extensions
 			return index < collection.Count && index >= 0 ? collection[index] : default;
 		}
 
-		public static ArrayLine<T> GetColumn<T>(this T[,] array, int index)
+		public static IIndexable<T> GetColumn<T>(this T[,] array, int index)
 		{
-			return new ArrayLine<T>(array, ArrayLine.Direction.Column, index);
+			return new ArrayLine<T>(array, Internal.ArrayLine.Direction.Column, index);
 		}
 
-		public static ArrayLine<T> GetRow<T>(this T[,] array, int index)
+		public static IIndexable<T> GetRow<T>(this T[,] array, int index)
 		{
-			return new ArrayLine<T>(array, ArrayLine.Direction.Row, index);
+			return new ArrayLine<T>(array, Internal.ArrayLine.Direction.Row, index);
 		}
 
 		public static T GetValue<T>(this T[,] array, Position p)
@@ -56,17 +57,6 @@ namespace AdventOfCode.Common.Extensions
 		public static bool HasInRange<T>(this T[,] array, Position p)
 		{
 			return p.X >= 0 && p.Y >= 0 && p.X < array.GetLength(0) && p.Y < array.GetLength(1);
-		}
-
-		public static int IndexOf<T>(this IIndexable<T> array, T value)
-		{
-			EqualityComparer<T> comparer = EqualityComparer<T>.Default;
-
-			for (int i = 0; i < array.Length; i++)
-				if (comparer.Equals(array[i], value))
-					return i;
-
-			return -1;
 		}
 
 		public static int IndexOfMaxValue<T>(this IList<T> list) where T : IComparable<T>
@@ -83,21 +73,48 @@ namespace AdventOfCode.Common.Extensions
 			return m;
 		}
 
-		public static void Rotate<T>(this IIndexable<T> array, int n)
+		public static T[,] To2DArray<T>(this IEnumerable<IEnumerable<T>> source)
 		{
-			n %= array.Length;
+			return To2DArray(source, source.Count(), source.FirstOrDefault()?.Count() ?? 0);
+		}
 
-			if (n == 0)
-				return;
-			if (n < 0)
-				n = array.Length + n;
+		public static T[,] To2DArray<T>(this ICollection<ICollection<T>> source)
+		{
+			return To2DArray(source, source.Count, source.FirstOrDefault()?.Count ?? 0);
+		}
 
-			var values = array
-				.Concat(array)
-				.Skip(array.Length - n)
-				.Take(array.Length).ToList();
+		public static T[,] To2DArray<T>(this IEnumerable<IEnumerable<T>> source, int len)
+		{
+			return source.To2DArray(len, len);
+		}
 
-			values.WriteToArray(array);
+		public static T[,] To2DArray<T>(this IEnumerable<IEnumerable<T>> source, int len0, int len1)
+		{
+			using IEnumerator<IEnumerable<T>> e0 = source.GetEnumerator();
+			var array = new T[len0, len1];
+
+			int i;
+			for (i = 0; i < len0 && e0.MoveNext(); i++)
+			{
+				if (e0.Current == null)
+					throw new FormatException("Rows do not match");
+
+				using IEnumerator<T> e1 = e0.Current.GetEnumerator();
+
+				int j;
+				for (j = 0; j < len1 && e1.MoveNext(); j++)
+				{
+					array[i, j] = e1.Current;
+				}
+
+				if (j != len1 || e1.MoveNext())
+					throw new FormatException("Columns do not match.");
+			}
+
+			if (i != len0 || e0.MoveNext())
+				throw new FormatException("Rows do not match.");
+
+			return array;
 		}
 
 		public static bool TryGetValue<T>(this T[,] array, Position p, [MaybeNullWhen(false)] out T value)
