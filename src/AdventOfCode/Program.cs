@@ -30,25 +30,28 @@ namespace AdventOfCode
 			if (puzzleType == null)
 				return ExitError($"There's no puzzle for the specified date: {date.Value.ToLongDateString()}");
 			Console.WriteLine("Detected: " + puzzleType.FullName);
-			Console.WriteLine();
 
-			// Read input.
-			SetConsoleInputBuffer(4096);
-			Console.WriteLine("Puzzle input [Leave empty to read from file]:");
-			string[] input = Console.In.ReadToEmptyLine();
-			if (input == null || input.Length == 0)
+			// Try reading input file.
+			string[] input;
+			string inputFilePath = puzzleType.FullName!
+				.Replace(nameof(AdventOfCode), "Inputs")
+				.Replace('.', Path.DirectorySeparatorChar)
+				+ ".txt";
+			if (File.Exists(inputFilePath))
 			{
-				string inputFilePath = puzzleType.FullName!
-					.Replace(nameof(AdventOfCode), "Inputs")
-					.Replace('.', Path.DirectorySeparatorChar)
-					+ ".txt";
-				Console.WriteLine("Attempting to read input from file: " + inputFilePath);
-				if (!File.Exists(inputFilePath))
-					return ExitError("No input provided.");
-
+				Console.WriteLine("Reading input from file: " + inputFilePath);
 				input = File.ReadAllLines(inputFilePath);
 				if (input == null || input.Length == 0 || input.Length == 1 && string.IsNullOrEmpty(input[0]))
-					return ExitError("File has no input.");
+					return ExitError("File has invalid input.");
+				Console.WriteLine();
+			}
+			else
+			{
+				// Read input from console.
+				SetConsoleInputBuffer(4096);
+				Console.WriteLine();
+				Console.WriteLine("Puzzle input [Leave empty to read from file]:");
+				input = Console.In.ReadToEmptyLine();
 			}
 
 			// Create the puzzle.
@@ -63,6 +66,7 @@ namespace AdventOfCode
 			}
 			Console.WriteLine($"--- Advent of Code {puzzle.Date.Year} ---");
 			Console.WriteLine("--- Day " + puzzle.Date.Day + (puzzle.Title == null ? "" : $": {puzzle.Title}") + " ---");
+			Console.WriteLine();
 
 			// Part one.
 			var watch = new Stopwatch();
