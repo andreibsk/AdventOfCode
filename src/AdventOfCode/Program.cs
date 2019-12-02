@@ -21,7 +21,7 @@ namespace AdventOfCode
 			else
 				datestr = args[0];
 
-			DateTime? date = ParsePuzzleDate(datestr);
+			DateTime? date = string.IsNullOrWhiteSpace(datestr) ? DateTime.Today : ParsePuzzleDate(datestr);
 			if (date == null)
 				return ExitError("Invalid year/date format.");
 
