@@ -85,6 +85,8 @@ namespace AdventOfCode.Common
 
 		public Direction ToLeft() => new Direction(_deltaY, -_deltaX);
 
+		public Direction ToReverse() => new Direction(-_deltaX, -_deltaY);
+
 		public Direction ToRight() => new Direction(-_deltaY, _deltaX);
 
 		public Direction ToSlightLeft() => new Direction(_deltaX + _deltaY, _deltaY - _deltaX);

@@ -24,6 +24,22 @@ namespace AdventOfCode.Tests.Common
 		}
 
 		[TestMethod]
+		public void ArrayModeToReverse()
+		{
+			Direction.SetMode(Direction.Mode.Array);
+
+			Assert.AreEqual(Direction.South, Direction.North.ToReverse());
+			Assert.AreEqual(Direction.West, Direction.East.ToReverse());
+			Assert.AreEqual(Direction.North, Direction.South.ToReverse());
+			Assert.AreEqual(Direction.East, Direction.West.ToReverse());
+
+			Assert.AreEqual(Direction.SouthWest, Direction.NorthEast.ToReverse());
+			Assert.AreEqual(Direction.NorthWest, Direction.SouthEast.ToReverse());
+			Assert.AreEqual(Direction.NorthEast, Direction.SouthWest.ToReverse());
+			Assert.AreEqual(Direction.SouthEast, Direction.NorthWest.ToReverse());
+		}
+
+		[TestMethod]
 		public void ArrayModeToRight()
 		{
 			Direction.SetMode(Direction.Mode.Array);
@@ -83,6 +99,22 @@ namespace AdventOfCode.Tests.Common
 			Assert.AreEqual(Direction.NorthEast, Direction.SouthEast.ToLeft());
 			Assert.AreEqual(Direction.SouthEast, Direction.SouthWest.ToLeft());
 			Assert.AreEqual(Direction.SouthWest, Direction.NorthWest.ToLeft());
+		}
+
+		[TestMethod]
+		public void ScreenModeToReverse()
+		{
+			Direction.SetMode(Direction.Mode.Screen);
+
+			Assert.AreEqual(Direction.South, Direction.North.ToReverse());
+			Assert.AreEqual(Direction.West, Direction.East.ToReverse());
+			Assert.AreEqual(Direction.North, Direction.South.ToReverse());
+			Assert.AreEqual(Direction.East, Direction.West.ToReverse());
+
+			Assert.AreEqual(Direction.SouthWest, Direction.NorthEast.ToReverse());
+			Assert.AreEqual(Direction.NorthWest, Direction.SouthEast.ToReverse());
+			Assert.AreEqual(Direction.NorthEast, Direction.SouthWest.ToReverse());
+			Assert.AreEqual(Direction.SouthEast, Direction.NorthWest.ToReverse());
 		}
 
 		[TestMethod]
