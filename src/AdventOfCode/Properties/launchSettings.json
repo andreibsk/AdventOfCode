@@ -1,0 +1,419 @@
+{
+	"profiles": {
+		"AdventOfCode": {
+			"commandName": "Project"
+		},
+		"AdventOfCode 19.01": {
+			"commandName": "Project",
+			"commandLineArgs": "19.01"
+		},
+		"AdventOfCode 19.02": {
+			"commandName": "Project",
+			"commandLineArgs": "19.02"
+		},
+		"AdventOfCode 19.03": {
+			"commandName": "Project",
+			"commandLineArgs": "19.03"
+		},
+		"AdventOfCode 19.04": {
+			"commandName": "Project",
+			"commandLineArgs": "19.04"
+		},
+		"AdventOfCode 19.05": {
+			"commandName": "Project",
+			"commandLineArgs": "19.05"
+		},
+		"AdventOfCode 19.06": {
+			"commandName": "Project",
+			"commandLineArgs": "19.06"
+		},
+		"AdventOfCode 19.07": {
+			"commandName": "Project",
+			"commandLineArgs": "19.07"
+		},
+		"AdventOfCode 19.08": {
+			"commandName": "Project",
+			"commandLineArgs": "19.08"
+		},
+		"AdventOfCode 19.09": {
+			"commandName": "Project",
+			"commandLineArgs": "19.09"
+		},
+		"AdventOfCode 19.10": {
+			"commandName": "Project",
+			"commandLineArgs": "19.10"
+		},
+		"AdventOfCode 19.11": {
+			"commandName": "Project",
+			"commandLineArgs": "19.11"
+		},
+		"AdventOfCode 19.12": {
+			"commandName": "Project",
+			"commandLineArgs": "19.12"
+		},
+		"AdventOfCode 19.13": {
+			"commandName": "Project",
+			"commandLineArgs": "19.13"
+		},
+		"AdventOfCode 19.14": {
+			"commandName": "Project",
+			"commandLineArgs": "19.14"
+		},
+		"AdventOfCode 19.15": {
+			"commandName": "Project",
+			"commandLineArgs": "19.15"
+		},
+		"AdventOfCode 19.16": {
+			"commandName": "Project",
+			"commandLineArgs": "19.16"
+		},
+		"AdventOfCode 19.17": {
+			"commandName": "Project",
+			"commandLineArgs": "19.17"
+		},
+		"AdventOfCode 19.18": {
+			"commandName": "Project",
+			"commandLineArgs": "19.18"
+		},
+		"AdventOfCode 19.19": {
+			"commandName": "Project",
+			"commandLineArgs": "19.19"
+		},
+		"AdventOfCode 19.20": {
+			"commandName": "Project",
+			"commandLineArgs": "19.20"
+		},
+		"AdventOfCode 19.21": {
+			"commandName": "Project",
+			"commandLineArgs": "19.21"
+		},
+		"AdventOfCode 19.22": {
+			"commandName": "Project",
+			"commandLineArgs": "19.22"
+		},
+		"AdventOfCode 19.23": {
+			"commandName": "Project",
+			"commandLineArgs": "19.23"
+		},
+		"AdventOfCode 19.24": {
+			"commandName": "Project",
+			"commandLineArgs": "19.24"
+		},
+		"AdventOfCode 19.25 🎅": {
+			"commandName": "Project",
+			"commandLineArgs": "19.25"
+		},
+
+
+
+		"AdventOfCode 18.01": {
+			"commandName": "Project",
+			"commandLineArgs": "18.01"
+		},
+		"AdventOfCode 18.02": {
+			"commandName": "Project",
+			"commandLineArgs": "18.02"
+		},
+		"AdventOfCode 18.03": {
+			"commandName": "Project",
+			"commandLineArgs": "18.03"
+		},
+		"AdventOfCode 18.04": {
+			"commandName": "Project",
+			"commandLineArgs": "18.04"
+		},
+		"AdventOfCode 18.05": {
+			"commandName": "Project",
+			"commandLineArgs": "18.05"
+		},
+		"AdventOfCode 18.06": {
+			"commandName": "Project",
+			"commandLineArgs": "18.06"
+		},
+		"AdventOfCode 18.07": {
+			"commandName": "Project",
+			"commandLineArgs": "18.07"
+		},
+		"AdventOfCode 18.08": {
+			"commandName": "Project",
+			"commandLineArgs": "18.08"
+		},
+		"AdventOfCode 18.09": {
+			"commandName": "Project",
+			"commandLineArgs": "18.09"
+		},
+		"AdventOfCode 18.10": {
+			"commandName": "Project",
+			"commandLineArgs": "18.10"
+		},
+		"AdventOfCode 18.11": {
+			"commandName": "Project",
+			"commandLineArgs": "18.11"
+		},
+		"AdventOfCode 18.12": {
+			"commandName": "Project",
+			"commandLineArgs": "18.12"
+		},
+		"AdventOfCode 18.13": {
+			"commandName": "Project",
+			"commandLineArgs": "18.13"
+		},
+		"AdventOfCode 18.14": {
+			"commandName": "Project",
+			"commandLineArgs": "18.14"
+		},
+		"AdventOfCode 18.15": {
+			"commandName": "Project",
+			"commandLineArgs": "18.15"
+		},
+		"AdventOfCode 18.16": {
+			"commandName": "Project",
+			"commandLineArgs": "18.16"
+		},
+		"AdventOfCode 18.17": {
+			"commandName": "Project",
+			"commandLineArgs": "18.17"
+		},
+		"AdventOfCode 18.18": {
+			"commandName": "Project",
+			"commandLineArgs": "18.18"
+		},
+		"AdventOfCode 18.19": {
+			"commandName": "Project",
+			"commandLineArgs": "18.19"
+		},
+		"AdventOfCode 18.20": {
+			"commandName": "Project",
+			"commandLineArgs": "18.20"
+		},
+		"AdventOfCode 18.21": {
+			"commandName": "Project",
+			"commandLineArgs": "18.21"
+		},
+		"AdventOfCode 18.22": {
+			"commandName": "Project",
+			"commandLineArgs": "18.22"
+		},
+		"AdventOfCode 18.23": {
+			"commandName": "Project",
+			"commandLineArgs": "18.23"
+		},
+		"AdventOfCode 18.24": {
+			"commandName": "Project",
+			"commandLineArgs": "18.24"
+		},
+		"AdventOfCode 18.25 🎅": {
+			"commandName": "Project",
+			"commandLineArgs": "18.25"
+		},
+
+
+
+
+		"AdventOfCode 17.01": {
+			"commandName": "Project",
+			"commandLineArgs": "17.01"
+		},
+		"AdventOfCode 17.02": {
+			"commandName": "Project",
+			"commandLineArgs": "17.02"
+		},
+		"AdventOfCode 17.03": {
+			"commandName": "Project",
+			"commandLineArgs": "17.03"
+		},
+		"AdventOfCode 17.04": {
+			"commandName": "Project",
+			"commandLineArgs": "17.04"
+		},
+		"AdventOfCode 17.05": {
+			"commandName": "Project",
+			"commandLineArgs": "17.05"
+		},
+		"AdventOfCode 17.06": {
+			"commandName": "Project",
+			"commandLineArgs": "17.06"
+		},
+		"AdventOfCode 17.07": {
+			"commandName": "Project",
+			"commandLineArgs": "17.07"
+		},
+		"AdventOfCode 17.08": {
+			"commandName": "Project",
+			"commandLineArgs": "17.08"
+		},
+		"AdventOfCode 17.09": {
+			"commandName": "Project",
+			"commandLineArgs": "17.09"
+		},
+		"AdventOfCode 17.10": {
+			"commandName": "Project",
+			"commandLineArgs": "17.10"
+		},
+		"AdventOfCode 17.11": {
+			"commandName": "Project",
+			"commandLineArgs": "17.11"
+		},
+		"AdventOfCode 17.12": {
+			"commandName": "Project",
+			"commandLineArgs": "17.12"
+		},
+		"AdventOfCode 17.13": {
+			"commandName": "Project",
+			"commandLineArgs": "17.13"
+		},
+		"AdventOfCode 17.14": {
+			"commandName": "Project",
+			"commandLineArgs": "17.14"
+		},
+		"AdventOfCode 17.15": {
+			"commandName": "Project",
+			"commandLineArgs": "17.15"
+		},
+		"AdventOfCode 17.16": {
+			"commandName": "Project",
+			"commandLineArgs": "17.16"
+		},
+		"AdventOfCode 17.17": {
+			"commandName": "Project",
+			"commandLineArgs": "17.17"
+		},
+		"AdventOfCode 17.18": {
+			"commandName": "Project",
+			"commandLineArgs": "17.18"
+		},
+		"AdventOfCode 17.19": {
+			"commandName": "Project",
+			"commandLineArgs": "17.19"
+		},
+		"AdventOfCode 17.20": {
+			"commandName": "Project",
+			"commandLineArgs": "17.20"
+		},
+		"AdventOfCode 17.21": {
+			"commandName": "Project",
+			"commandLineArgs": "17.21"
+		},
+		"AdventOfCode 17.22": {
+			"commandName": "Project",
+			"commandLineArgs": "17.22"
+		},
+		"AdventOfCode 17.23": {
+			"commandName": "Project",
+			"commandLineArgs": "17.23"
+		},
+		"AdventOfCode 17.24": {
+			"commandName": "Project",
+			"commandLineArgs": "17.24"
+		},
+		"AdventOfCode 17.25 🎅": {
+			"commandName": "Project",
+			"commandLineArgs": "17.25"
+		},
+
+
+
+
+
+		"AdventOfCode 16.01": {
+			"commandName": "Project",
+			"commandLineArgs": "16.01"
+		},
+		"AdventOfCode 16.02": {
+			"commandName": "Project",
+			"commandLineArgs": "16.02"
+		},
+		"AdventOfCode 16.03": {
+			"commandName": "Project",
+			"commandLineArgs": "16.03"
+		},
+		"AdventOfCode 16.04": {
+			"commandName": "Project",
+			"commandLineArgs": "16.04"
+		},
+		"AdventOfCode 16.05": {
+			"commandName": "Project",
+			"commandLineArgs": "16.05"
+		},
+		"AdventOfCode 16.06": {
+			"commandName": "Project",
+			"commandLineArgs": "16.06"
+		},
+		"AdventOfCode 16.07": {
+			"commandName": "Project",
+			"commandLineArgs": "16.07"
+		},
+		"AdventOfCode 16.08": {
+			"commandName": "Project",
+			"commandLineArgs": "16.08"
+		},
+		"AdventOfCode 16.09": {
+			"commandName": "Project",
+			"commandLineArgs": "16.09"
+		},
+		"AdventOfCode 16.10": {
+			"commandName": "Project",
+			"commandLineArgs": "16.10"
+		},
+		"AdventOfCode 16.11": {
+			"commandName": "Project",
+			"commandLineArgs": "16.11"
+		},
+		"AdventOfCode 16.12": {
+			"commandName": "Project",
+			"commandLineArgs": "16.12"
+		},
+		"AdventOfCode 16.13": {
+			"commandName": "Project",
+			"commandLineArgs": "16.13"
+		},
+		"AdventOfCode 16.14": {
+			"commandName": "Project",
+			"commandLineArgs": "16.14"
+		},
+		"AdventOfCode 16.15": {
+			"commandName": "Project",
+			"commandLineArgs": "16.15"
+		},
+		"AdventOfCode 16.16": {
+			"commandName": "Project",
+			"commandLineArgs": "16.16"
+		},
+		"AdventOfCode 16.17": {
+			"commandName": "Project",
+			"commandLineArgs": "16.17"
+		},
+		"AdventOfCode 16.18": {
+			"commandName": "Project",
+			"commandLineArgs": "16.18"
+		},
+		"AdventOfCode 16.19": {
+			"commandName": "Project",
+			"commandLineArgs": "16.19"
+		},
+		"AdventOfCode 16.20": {
+			"commandName": "Project",
+			"commandLineArgs": "16.20"
+		},
+		"AdventOfCode 16.21": {
+			"commandName": "Project",
+			"commandLineArgs": "16.21"
+		},
+		"AdventOfCode 16.22": {
+			"commandName": "Project",
+			"commandLineArgs": "16.22"
+		},
+		"AdventOfCode 16.23": {
+			"commandName": "Project",
+			"commandLineArgs": "16.23"
+		},
+		"AdventOfCode 16.24": {
+			"commandName": "Project",
+			"commandLineArgs": "16.24"
+		},
+		"AdventOfCode 16.25 🎅": {
+			"commandName": "Project",
+			"commandLineArgs": "16.25"
+		}
+	}
+}
