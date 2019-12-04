@@ -79,6 +79,15 @@ namespace AdventOfCode.Common.Extensions
 					yield return value;
 		}
 
+		public static ValueTuple<T1, T2> ToValueTuple<T1, T2>(this IEnumerable<T1> source)
+		{
+			source.Deconstruct(out T1 value1, out T1 value2t1);
+			if (!(value2t1 is T2 value2))
+				throw new InvalidCastException();
+
+			return (value1, value2);
+		}
+
 		public static int WriteToArray<T>(this IEnumerable<T> source, IIndexable<T> array)
 		{
 			return WriteToArray(source, array, index: 0);
