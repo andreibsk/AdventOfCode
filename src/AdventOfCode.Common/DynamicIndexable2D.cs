@@ -1,21 +1,21 @@
 using System.Collections.Generic;
 
-namespace AdventOfCode.Common.Internal
+namespace AdventOfCode.Common
 {
-	internal class DictionaryDynamicIndexable2D<TValue> : IDynamicIndexable2D<TValue>
+	public class DynamicIndexable2D<TValue> : IDynamicIndexable2D<TValue>
 	{
 		private readonly IDictionary<(int, int), TValue> _dictionary;
 
-		public DictionaryDynamicIndexable2D() : this(new Dictionary<(int, int), TValue>(), s0: 0, s1: 0, l0: 0, l1: 0)
+		public DynamicIndexable2D() : this(new Dictionary<(int, int), TValue>(), s0: 0, s1: 0, l0: 0, l1: 0)
 		{
 		}
 
-		public DictionaryDynamicIndexable2D(IIndexable2D<TValue> source)
+		public DynamicIndexable2D(IIndexable2D<TValue> source)
 			: this(Indexable2DToDictionary(source), s0: 0, s1: 0, l0: source.Length0, l1: source.Length1)
 		{
 		}
 
-		private DictionaryDynamicIndexable2D(IDictionary<(int, int), TValue> dictionary, int s0, int s1, int l0, int l1)
+		private DynamicIndexable2D(IDictionary<(int, int), TValue> dictionary, int s0, int s1, int l0, int l1)
 		{
 			_dictionary = dictionary;
 			Start0 = s0;

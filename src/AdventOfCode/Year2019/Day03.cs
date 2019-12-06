@@ -33,7 +33,7 @@ namespace AdventOfCode.Year2019
 		private int CalculateClosestDistance(bool part2)
 		{
 			Position pos = (0, 0);
-			IDynamicIndexable2D<int?> firstPath = new DictionaryDynamicIndexable2D<int?>();
+			IDynamicIndexable2D<int?> firstPath = new DynamicIndexable2D<int?>();
 			int closestDistance = int.MaxValue;
 			int totalDistance = 0;
 

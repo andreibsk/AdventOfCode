@@ -7,7 +7,7 @@ namespace AdventOfCode.Common.Extensions
 	{
 		public static IDynamicIndexable2D<T> ToDynamicIndexable<T>(this IEnumerable<IEnumerable<T>> source)
 		{
-			var dindexable = new DictionaryDynamicIndexable2D<T>();
+			var dindexable = new DynamicIndexable2D<T>();
 			using IEnumerator<IEnumerable<T>> e0 = source.GetEnumerator();
 
 			int i;
@@ -25,7 +25,7 @@ namespace AdventOfCode.Common.Extensions
 
 		public static IDynamicIndexable2D<T> ToDynamicIndexable<T>(this IIndexable2D<T> source)
 		{
-			return new DictionaryDynamicIndexable2D<T>(source);
+			return new DynamicIndexable2D<T>(source);
 		}
 	}
 }

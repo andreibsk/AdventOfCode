@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AdventOfCode.Common\AdventOfCode.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Inputs\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
