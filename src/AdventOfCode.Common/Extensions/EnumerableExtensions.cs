@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AdventOfCode.Common.Internal;
 
 namespace AdventOfCode.Common.Extensions
 {
@@ -62,6 +63,14 @@ namespace AdventOfCode.Common.Extensions
 			foreach (TSource element in source)
 				if (keys.Add(keySelector(element)))
 					yield return element;
+		}
+
+		public static IEnumerable<IList<T>> Permutations<T>(this IEnumerable<T> source)
+		{
+			using var iter = new PermutationEnumerator<T>(source);
+
+			while (iter.MoveNext())
+				yield return iter.Current;
 		}
 
 		public static IEnumerable<T> Repeat<T>(this IEnumerable<T> source)
