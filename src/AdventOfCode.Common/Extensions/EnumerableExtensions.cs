@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using AdventOfCode.Common.Internal;
 
 namespace AdventOfCode.Common.Extensions
@@ -24,26 +25,20 @@ namespace AdventOfCode.Common.Extensions
 			}
 		}
 
-		public static void Deconstruct<T>(this IEnumerable<T> source, out T value1, out T value2)
+		public static void Deconstruct<T>(this IEnumerable<T> source, [MaybeNull] out T value1, [MaybeNull] out T value2)
 		{
 			using IEnumerator<T> e = source.GetEnumerator();
-
-			e.MoveNext();
-			value1 = e.Current;
-			e.MoveNext();
-			value2 = e.Current;
+			value1 = e.MoveNext() ? e.Current : default;
+			value2 = e.MoveNext() ? e.Current : default;
 		}
 
-		public static void Deconstruct<T>(this IEnumerable<T> source, out T value1, out T value2, out T value3)
+		public static void Deconstruct<T>(this IEnumerable<T> source, [MaybeNull] out T value1, [MaybeNull] out T value2,
+			[MaybeNull] out T value3)
 		{
 			using IEnumerator<T> e = source.GetEnumerator();
-
-			e.MoveNext();
-			value1 = e.Current;
-			e.MoveNext();
-			value2 = e.Current;
-			e.MoveNext();
-			value3 = e.Current;
+			value1 = e.MoveNext() ? e.Current : default;
+			value2 = e.MoveNext() ? e.Current : default;
+			value3 = e.MoveNext() ? e.Current : default;
 		}
 
 		public static void DeconstructValuesOrDefault<T>(this IEnumerable<T> source, out T? value1, out T? value2, out T? value3)

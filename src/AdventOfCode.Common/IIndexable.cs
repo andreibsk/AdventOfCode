@@ -38,7 +38,7 @@ namespace AdventOfCode.Common
 				}
 			}
 
-			object? IEnumerator.Current => throw new NotImplementedException();
+			object? IEnumerator.Current => Current;
 
 			public void Dispose() { }
 
