@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AdventOfCode.Year2019
@@ -18,19 +19,22 @@ namespace AdventOfCode.Year2019
 		public override string? CalculateSolution()
 		{
 			int[] localMem = _initialMemory.ToArray();
-			return Solution = ExecuteProgram(localMem, input: 1);
+			return Solution = ExecuteProgram(localMem, input: 1).Single().ToString();
 		}
 
 		public override string? CalculateSolutionPartTwo()
 		{
 			int[] localMem = _initialMemory.ToArray();
-			return SolutionPartTwo = ExecuteProgram(localMem, input: 5);
+			return SolutionPartTwo = ExecuteProgram(localMem, input: 5).Single().ToString();
 		}
 
-		private static string ExecuteProgram(int[] memory, int input)
+		internal static IEnumerable<int> ExecuteProgram(int[] memory, params int[] input)
 		{
-			int output = 0;
+			return ExecuteProgram(memory, new Queue<int>(input));
+		}
 
+		internal static IEnumerable<int> ExecuteProgram(int[] memory, Queue<int> input)
+		{
 			for (int ip = 0; memory[ip] % 100 != Opcode.Exit; ip++)
 			{
 				int p1 = 0, p2 = 0;
@@ -55,11 +59,11 @@ namespace AdventOfCode.Year2019
 						break;
 
 					case Opcode.Input:
-						memory[memory[++ip]] = input;
+						memory[memory[++ip]] = input.Dequeue();
 						break;
 
 					case Opcode.Output:
-						output = memory[memory[++ip]];
+						yield return memory[memory[++ip]];
 						break;
 
 					case Opcode.JumpIfTrue:
@@ -84,8 +88,6 @@ namespace AdventOfCode.Year2019
 						throw new InvalidOperationException();
 				}
 			}
-
-			return output.ToString();
 		}
 
 		private static class Opcode
