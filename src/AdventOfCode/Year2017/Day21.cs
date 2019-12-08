@@ -32,10 +32,10 @@ namespace AdventOfCode.Year2017
 					.Where(s => s[size] == '/')
 					.SelectMany(s =>
 					{
-						(IIndexable2D<bool> pattern, IIndexable2D<bool> result) = s
+						(IIndexable2D<bool>? pattern, IIndexable2D<bool>? result) = s
 							.Split(" => ")
 							.Select(ps => PatternStringToIndexable(ps));
-						return AllSourceOrientations(pattern, result);
+						return AllSourceOrientations(pattern!, result!);
 					})
 					.Select(sd => (source: GetPatternCode(sd.source), sd.destination))
 					.Distinct(sd => sd.source)
