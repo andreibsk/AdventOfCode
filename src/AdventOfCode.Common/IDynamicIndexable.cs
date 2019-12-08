@@ -4,12 +4,14 @@ using AdventOfCode.Common.Internal.Enumerators;
 
 namespace AdventOfCode.Common
 {
-	public interface IIndexable<TValue> : IEnumerable<TValue>
+	public interface IDynamicIndexable<TValue> : IEnumerable<TValue>
 	{
 		int Length { get; }
+		int Start { get; }
+
 		TValue this[int index] { get; set; }
 
-		IEnumerator<TValue> IEnumerable<TValue>.GetEnumerator() => new IndexableEnumerator<TValue>(this);
+		IEnumerator<TValue> IEnumerable<TValue>.GetEnumerator() => new DynamicIndexableEnumerator<TValue>(this);
 
 		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 	}
