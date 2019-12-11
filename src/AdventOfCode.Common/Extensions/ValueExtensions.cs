@@ -9,6 +9,22 @@ namespace AdventOfCode.Common.Extensions
 			return ((c1 << 5) + c1) ^ c2;
 		}
 
+		public static int Gcd(this int a, int b)
+		{
+			a = Math.Abs(a);
+			b = Math.Abs(b);
+
+			while (a != 0 && b != 0)
+			{
+				if (a > b)
+					a %= b;
+				else
+					b %= a;
+			}
+
+			return a == 0 ? b : a;
+		}
+
 		public static int SetBitsCount(this int i)
 		{
 			i -= (i >> 1) & 0x55555555;

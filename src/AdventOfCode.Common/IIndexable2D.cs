@@ -6,5 +6,11 @@ namespace AdventOfCode.Common
 		int Length1 { get; }
 
 		TValue this[int x, int y] { get; set; }
+
+		TValue this[Position p]
+		{
+			get => this[p.X, p.Y];
+			set => this[p.X, p.Y] = value;
+		}
 	}
 }
