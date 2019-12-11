@@ -83,6 +83,9 @@ namespace AdventOfCode.Tests.Common
 			Assert.AreEqual(Direction.West, Direction.SouthWest.ToSlightRight());
 			Assert.AreEqual(Direction.NorthWest, Direction.West.ToSlightRight());
 			Assert.AreEqual(Direction.North, Direction.NorthWest.ToSlightRight());
+
+			Assert.AreEqual(new Direction(-1, 5), new Direction(-3, 2).ToSlightRight());
+			Assert.AreEqual(new Direction(2, 3), new Direction(-1, 5).ToSlightRight());
 		}
 
 		[TestMethod]

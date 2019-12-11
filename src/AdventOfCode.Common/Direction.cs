@@ -1,28 +1,27 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Common
 {
-	public struct Direction : IVector2
+	public struct Direction : IVector2, IComparable<Direction>
 	{
 		public static readonly Direction None = new Direction(0, 0);
 		private static Mode s_mode;
 
-		private readonly int _deltaX;
-		private readonly int _deltaY;
-
-		static Direction()
+		public Direction(int dx, int dy)
 		{
-			All = (new[] { North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest }).ToImmutableArray();
-			NESW = (new[] { North, East, South, West }).ToImmutableArray();
-		}
-
-		private Direction(int dx, int dy)
-		{
-			_deltaX = Math.Max(-1, Math.Min(dx, 1));
-			_deltaY = Math.Max(-1, Math.Min(dy, 1));
+			if (dx != 0 && dy != 0)
+			{
+				int gcd = dx.Gcd(dy);
+				X = dx / gcd;
+				Y = dy / gcd;
+			}
+			else
+			{
+				X = Math.Sign(dx);
+				Y = Math.Sign(dy);
+			}
 		}
 
 		public enum Mode
@@ -31,20 +30,20 @@ namespace AdventOfCode.Common
 			Array
 		}
 
-		public static IEnumerable<Direction> All { get; }
+		public static IEnumerable<Direction> All => new[] { North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest };
+		public static Direction East => s_mode == Mode.Screen ? new Direction(1, 0) : new Direction(0, 1);
+		public static IEnumerable<Direction> NESW => new[] { North, East, South, West };
+		public static Direction North => s_mode == Mode.Screen ? new Direction(0, -1) : new Direction(-1, 0);
+		public static Direction NorthEast => s_mode == Mode.Screen ? new Direction(1, -1) : new Direction(-1, 1);
+		public static Direction NorthWest => s_mode == Mode.Screen ? new Direction(-1, -1) : new Direction(-1, -1);
+		public static Direction South => s_mode == Mode.Screen ? new Direction(0, 1) : new Direction(1, 0);
+		public static Direction SouthEast => s_mode == Mode.Screen ? new Direction(1, 1) : new Direction(1, 1);
+		public static Direction SouthWest => s_mode == Mode.Screen ? new Direction(-1, 1) : new Direction(1, -1);
+		public static Direction West => s_mode == Mode.Screen ? new Direction(-1, 0) : new Direction(0, -1);
 
-		public static Direction East { get; } = new Direction(1, 0);
-		public static IEnumerable<Direction> NESW { get; }
-		public static Direction North { get; } = new Direction(0, -1);
-		public static Direction NorthEast { get; } = new Direction(1, -1);
-		public static Direction NorthWest { get; } = new Direction(-1, -1);
-		public static Direction South { get; } = new Direction(0, 1);
-		public static Direction SouthEast { get; } = new Direction(1, 1);
-		public static Direction SouthWest { get; } = new Direction(-1, 1);
-		public static Direction West { get; } = new Direction(-1, 0);
-
-		public int X => s_mode == Mode.Screen ? _deltaX : _deltaY;
-		public int Y => s_mode == Mode.Screen ? _deltaY : _deltaX;
+		public float Angle => ((s_mode == Mode.Screen ? MathF.Atan2(Y, X) : MathF.Atan2(X, Y)) * 180 / MathF.PI + 360) % 360;
+		public int X { get; }
+		public int Y { get; }
 
 		public static bool operator !=(Direction l, Direction r) => !(l == r);
 
@@ -74,6 +73,8 @@ namespace AdventOfCode.Common
 
 		public static void SetMode(Mode mode) => s_mode = mode;
 
+		public int CompareTo(Direction other) => Math.Sign(Angle - other.Angle);
+
 		public override bool Equals(object? obj)
 		{
 			if (!(obj is Direction d))
@@ -81,21 +82,21 @@ namespace AdventOfCode.Common
 			return d.X == X && d.Y == Y;
 		}
 
-		public override int GetHashCode() => _deltaX.CombineHashCode(_deltaY);
+		public override int GetHashCode() => X.CombineHashCode(Y);
 
-		public Direction ToLeft() => new Direction(_deltaY, -_deltaX);
+		public Direction ToLeft() => s_mode == Mode.Screen ? new Direction(Y, -X) : new Direction(-Y, X);
 
-		public Direction ToReverse() => new Direction(-_deltaX, -_deltaY);
+		public Direction ToReverse() => new Direction(-X, -Y);
 
-		public Direction ToRight() => new Direction(-_deltaY, _deltaX);
+		public Direction ToRight() => s_mode == Mode.Screen ? new Direction(-Y, X) : new Direction(Y, -X);
 
-		public Direction ToSlightLeft() => new Direction(_deltaX + _deltaY, _deltaY - _deltaX);
+		public Direction ToSlightLeft() => s_mode == Mode.Screen ? new Direction(X + Y, Y - X) : new Direction(X - Y, Y + X);
 
-		public Direction ToSlightRight() => new Direction(_deltaX - _deltaY, _deltaY + _deltaX);
+		public Direction ToSlightRight() => s_mode == Mode.Screen ? new Direction(X - Y, Y + X) : new Direction(X + Y, Y - X);
 
 		public override string ToString()
 		{
-			string s = $"ΔX={X}, ΔY={Y}, ";
+			string s = $"ΔX={X}, ΔY={Y}, {Angle}°, ";
 
 			if (Equals(East)) return s + nameof(East);
 			else if (Equals(North)) return s + nameof(North);
