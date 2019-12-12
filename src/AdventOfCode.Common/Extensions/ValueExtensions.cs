@@ -11,6 +11,11 @@ namespace AdventOfCode.Common.Extensions
 
 		public static int Gcd(this int a, int b)
 		{
+			return (int)Gcd(a, (long)b);
+		}
+
+		public static long Gcd(this long a, long b)
+		{
 			a = Math.Abs(a);
 			b = Math.Abs(b);
 
@@ -23,6 +28,16 @@ namespace AdventOfCode.Common.Extensions
 			}
 
 			return a == 0 ? b : a;
+		}
+
+		public static long Lcm(this int a, int b)
+		{
+			return Lcm(a, (long)b);
+		}
+
+		public static long Lcm(this long a, long b)
+		{
+			return a / a.Gcd(b) * b;
 		}
 
 		public static int SetBitsCount(this int i)
