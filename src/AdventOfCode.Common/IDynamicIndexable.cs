@@ -11,6 +11,8 @@ namespace AdventOfCode.Common
 
 		TValue this[int index] { get; set; }
 
+		void Clear();
+
 		IEnumerator<TValue> IEnumerable<TValue>.GetEnumerator() => new DynamicIndexableEnumerator<TValue>(this);
 
 		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();

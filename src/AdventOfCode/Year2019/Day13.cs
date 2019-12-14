@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using AdventOfCode.Common;
-using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Year2019
 {
@@ -23,7 +22,7 @@ namespace AdventOfCode.Year2019
 		{
 			IDynamicIndexable2D<int> screen = new DynamicIndexable2D<int>();
 
-			using IEnumerator<long> e = Day09.ExecuteProgram(_initialMemory.ToDynamicIndexable()).GetEnumerator();
+			using IEnumerator<long> e = new IntcodeComputer(_initialMemory).Execute().GetEnumerator();
 
 			while (e.MoveNext())
 			{
@@ -43,11 +42,11 @@ namespace AdventOfCode.Year2019
 
 		public override string? CalculateSolutionPartTwo()
 		{
-			IDynamicIndexable<long> memory = _initialMemory.ToDynamicIndexable();
 			IDynamicIndexable2D<int> screen = new DynamicIndexable2D<int>();
 
-			memory[0] = 2;
-			using IEnumerator<long> e = Day09.ExecuteProgram(memory, PaddleMovesEnumerable()).GetEnumerator();
+			var computer = new IntcodeComputer(_initialMemory);
+			computer.Memory[0] = 2;
+			using IEnumerator<long> e = computer.Execute(PaddleMovesEnumerable()).GetEnumerator();
 
 			bool draw = false;
 			long score = 0;

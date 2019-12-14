@@ -45,6 +45,13 @@ namespace AdventOfCode.Common
 			}
 		}
 
+		public void Clear()
+		{
+			_dictionary.Clear();
+			Length = 0;
+			Start = 0;
+		}
+
 		private static IDictionary<int, TValue> IndexableToDictionary(IIndexable<TValue> source)
 		{
 			var dictionary = new Dictionary<int, TValue>(capacity: source.Length);

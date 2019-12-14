@@ -8,11 +8,11 @@ namespace AdventOfCode.Year2019
 	public class Day07 : Puzzle
 	{
 		private const int AmpCount = 5;
-		private readonly int[] _initialMemory;
+		private readonly long[] _initialMemory;
 
 		public Day07(string[] input) : base(input)
 		{
-			_initialMemory = input[0].Split(',').Select(int.Parse).ToArray();
+			_initialMemory = input[0].Split(',').Select(long.Parse).ToArray();
 		}
 
 		public override DateTime Date => new DateTime(2019, 12, 07);
@@ -20,25 +20,15 @@ namespace AdventOfCode.Year2019
 
 		public override string? CalculateSolution()
 		{
-			int maxSignal = int.MinValue;
-			int[] localMem = new int[_initialMemory.Length];
+			long maxSignal = long.MinValue;
 
 			foreach (IList<int> phases in Enumerable.Range(0, AmpCount).Permutations())
 			{
-				Array.Copy(_initialMemory, localMem, _initialMemory.Length);
-				int outputA = ExecuteProgram(localMem, phases[0], 0).Single();
-
-				Array.Copy(_initialMemory, localMem, _initialMemory.Length);
-				int outputB = ExecuteProgram(localMem, phases[1], outputA).Single();
-
-				Array.Copy(_initialMemory, localMem, _initialMemory.Length);
-				int outputC = ExecuteProgram(localMem, phases[2], outputB).Single();
-
-				Array.Copy(_initialMemory, localMem, _initialMemory.Length);
-				int outputD = ExecuteProgram(localMem, phases[3], outputC).Single();
-
-				Array.Copy(_initialMemory, localMem, _initialMemory.Length);
-				int outputE = ExecuteProgram(localMem, phases[4], outputD).Single();
+				long outputA = new IntcodeComputer(_initialMemory).Execute(phases[0], 0).Single();
+				long outputB = new IntcodeComputer(_initialMemory).Execute(phases[1], outputA).Single();
+				long outputC = new IntcodeComputer(_initialMemory).Execute(phases[2], outputB).Single();
+				long outputD = new IntcodeComputer(_initialMemory).Execute(phases[3], outputC).Single();
+				long outputE = new IntcodeComputer(_initialMemory).Execute(phases[4], outputD).Single();
 
 				if (outputE > maxSignal)
 					maxSignal = outputE;
@@ -49,27 +39,27 @@ namespace AdventOfCode.Year2019
 
 		public override string? CalculateSolutionPartTwo()
 		{
-			int maxSignal = int.MinValue;
-			var amps = new (int[] Memory, Queue<int> Input, IEnumerator<int> Output)[AmpCount];
+			long maxSignal = long.MinValue;
+			var amps = new (IntcodeComputer Computer, Queue<long> Input, IEnumerator<long> Output)[AmpCount];
 
 			for (int i = 0; i < AmpCount; i++)
-				amps[i] = (new int[_initialMemory.Length], new Queue<int>(), Output: null!);
+				amps[i] = (new IntcodeComputer(), new Queue<long>(), Output: null!);
 
 			foreach (IList<int> phases in Enumerable.Range(5, AmpCount).Permutations())
 			{
 				for (int i = 0; i < AmpCount; i++)
 				{
-					Array.Copy(_initialMemory, amps[i].Memory, _initialMemory.Length);
+					amps[i].Computer.LoadProgram(_initialMemory);
 					amps[i].Input.Clear();
 					amps[i].Input.Enqueue(phases[i]);
-					amps[i].Output = ExecuteProgram(amps[i].Memory, amps[i].Input).GetEnumerator();
+					amps[i].Output = amps[i].Computer.Execute(amps[i].Input).GetEnumerator();
 				}
 
 				amps[0].Input.Enqueue(0);
 
-				for (int i = 0; amps[i].Output.MoveNext() ; i = (i + 1) % AmpCount)
+				for (int i = 0; amps[i].Output.MoveNext(); i = (i + 1) % AmpCount)
 				{
-					int output = amps[i].Output.Current;
+					long output = amps[i].Output.Current;
 
 					amps[(i + 1) % AmpCount].Input.Enqueue(output);
 
@@ -81,8 +71,5 @@ namespace AdventOfCode.Year2019
 
 			return SolutionPartTwo = maxSignal.ToString();
 		}
-
-		private static IEnumerable<int> ExecuteProgram(int[] memory, params int[] input) => Day05.ExecuteProgram(memory, input);
-		private static IEnumerable<int> ExecuteProgram(int[] memory, Queue<int> input) => Day05.ExecuteProgram(memory, input);
 	}
 }
