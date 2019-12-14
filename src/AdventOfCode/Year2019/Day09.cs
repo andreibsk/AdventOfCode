@@ -33,13 +33,25 @@ namespace AdventOfCode.Year2019
 
 		internal static IEnumerable<long> ExecuteProgram(IDynamicIndexable<long> memory, params long[] input)
 		{
-			return ExecuteProgram(memory, new Queue<long>(input));
+			return ExecuteProgram(memory, input.AsEnumerable());
 		}
 
 		internal static IEnumerable<long> ExecuteProgram(IDynamicIndexable<long> memory, Queue<long> input)
 		{
-			int relativeBase = 0;
+			return ExecuteProgram(memory, DequeueEnumerable(input));
 
+			static IEnumerable<long> DequeueEnumerable(Queue<long> q)
+			{
+				while (q.TryDequeue(out long val))
+					yield return val;
+			}
+		}
+
+		internal static IEnumerable<long> ExecuteProgram(IDynamicIndexable<long> memory, IEnumerable<long> input)
+		{
+			using IEnumerator<long> e = input.GetEnumerator();
+
+			int relativeBase = 0;
 			int opcode;
 			for (int ip = 0; (opcode = (int)(memory[ip] % 100)) != Opcode.Exit; ip++)
 			{
@@ -65,7 +77,7 @@ namespace AdventOfCode.Year2019
 						break;
 
 					case Opcode.Input:
-						memory[Addr(1)] = input.Dequeue();
+						memory[Addr(1)] = e.MoveNext() ? e.Current : throw new InvalidOperationException();
 						ip += 1;
 						break;
 
