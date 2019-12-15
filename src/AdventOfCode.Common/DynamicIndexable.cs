@@ -5,6 +5,7 @@ namespace AdventOfCode.Common
 	public class DynamicIndexable<TValue> : IDynamicIndexable<TValue>
 	{
 		private readonly IDictionary<int, TValue> _dictionary;
+		private bool _hasValues;
 
 		public DynamicIndexable() : this(new Dictionary<int, TValue>(), start: 0, length: 0)
 		{
@@ -17,6 +18,7 @@ namespace AdventOfCode.Common
 		private DynamicIndexable(IDictionary<int, TValue> dictionary, int start, int length)
 		{
 			_dictionary = dictionary;
+			_hasValues = dictionary.Count > 0;
 			Start = start;
 			Length = length;
 		}
@@ -33,6 +35,14 @@ namespace AdventOfCode.Common
 			{
 				_dictionary[index] = value;
 
+				if (!_hasValues)
+				{
+					Start = index;
+					Length = 1;
+					_hasValues = true;
+					return;
+				}
+
 				if (index < Start)
 				{
 					Length = Length + Start - index;
@@ -40,7 +50,7 @@ namespace AdventOfCode.Common
 				}
 				else if (index >= Start + Length)
 				{
-					Length = index - Start;
+					Length = index - Start + 1;
 				}
 			}
 		}
