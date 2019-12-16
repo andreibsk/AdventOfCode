@@ -30,24 +30,24 @@ namespace AdventOfCode.Common.Extensions
 
 		public static IEnumerable<Position> EnumeratePositions<T>(this IIndexable2D<T> source)
 		{
-			return EnumeratePositionsInternal(source);
+			return source.EnumeratePositions(start0: 0, source.Length0, start1: 0, source.Length1);
 		}
 
 		public static IEnumerable<Position> EnumeratePositions<T>(this IIndexable2D<T> source, Func<T, bool> predicate)
 		{
-			return EnumeratePositionsInternal(source, predicate);
+			return source.EnumeratePositions(start0: 0, source.Length0, start1: 0, source.Length1, predicate);
 		}
 
 		public static IEnumerable<Position> EnumeratePositions<T>(this IIndexable2D<T> source, Position? after = null,
 			Position? before = null)
 		{
-			return EnumeratePositionsInternal(source, after: after, before: before);
+			return source.EnumeratePositions(start0: 0, source.Length0, start1: 0, source.Length1, after: after, before: before);
 		}
 
 		public static IEnumerable<Position> EnumeratePositions<T>(this IIndexable2D<T> source, Func<T, bool> predicate,
 			Position? after = null, Position? before = null)
 		{
-			return EnumeratePositionsInternal(source, predicate, after, before);
+			return source.EnumeratePositions(start0: 0, source.Length0, start1: 0, source.Length1, predicate, after, before);
 		}
 
 		public static IIndexable2D<T> Flip<T>(this IIndexable2D<T> source)
@@ -101,18 +101,6 @@ namespace AdventOfCode.Common.Extensions
 		public static IIndexable2D<T> ToIndexable<T>(this IIndexable2D<T> source)
 		{
 			return new Indexable2DArray<T>(source.To2DArray());
-		}
-
-		private static IEnumerable<Position> EnumeratePositionsInternal<T>(this IIndexable2D<T> source, Func<T, bool>? predicate = null,
-			Position? after = null, Position? before = null)
-		{
-			Position a = after ?? (0, -1);
-			Position b = before ?? (source.Length0 - 1, source.Length1);
-
-			for (int x = a.X; x <= b.X; x++)
-				for (int y = x == a.X ? a.Y + 1 : 0; y < (x == b.X ? b.Y : source.Length1); y++)
-					if (predicate?.Invoke(source[x, y]) ?? true)
-						yield return (x, y);
 		}
 	}
 }

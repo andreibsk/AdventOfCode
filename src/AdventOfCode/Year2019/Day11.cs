@@ -67,7 +67,7 @@ namespace AdventOfCode.Year2019
 				inputQueue.Enqueue(panels[pos] ? 1 : 0);
 			}
 
-			return SolutionPartTwo = panels.ToString(b => b ? '#' : ' ');
+			return SolutionPartTwo = panels.ToString(b => b ? '#' : ' ', screenMode: true);
 		}
 	}
 }
