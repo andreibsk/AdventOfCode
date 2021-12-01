@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace AdventOfCode.Common.Internal;
 
 internal class FlippedIndexable2D<TValue> : IIndexable2D<TValue>
@@ -19,5 +21,10 @@ internal class FlippedIndexable2D<TValue> : IIndexable2D<TValue>
 	{
 		get => _source[_h ? x : Length0 - 1 - x, _h ? Length1 - 1 - y : y];
 		set => _source[_h ? x : Length0 - 1 - x, _h ? Length1 - 1 - y : y] = value;
+	}
+
+	public bool TryGetValue(int x, int y, [MaybeNullWhen(false)] out TValue value)
+	{
+		return _source.TryGetValue((x, y), out value);
 	}
 }

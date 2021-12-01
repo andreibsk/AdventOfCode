@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace AdventOfCode.Common.Internal;
 
 internal class MergedIndexable2D<TValue> : IIndexable2D<TValue>
@@ -60,6 +62,17 @@ internal class MergedIndexable2D<TValue> : IIndexable2D<TValue>
 			GetComposedIndex(x, y, out int ox, out int ix, out int oy, out int iy);
 			_blocks[ox, oy][ix, iy] = value;
 		}
+	}
+
+	public bool TryGetValue(int x, int y, [MaybeNullWhen(false)] out TValue value)
+	{
+		GetComposedIndex(x, y, out int ox, out int ix, out int oy, out int iy);
+
+		if (_blocks.TryGetValue((ox, oy), out var values))
+			return values.TryGetValue((ix, iy), out value);
+
+		value = default;
+		return false;
 	}
 
 	private void GetComposedIndex(int x, int y, out int outerX, out int innerX, out int outerY, out int innerY)

@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace AdventOfCode.Common.Internal;
 
 internal class IndexableOfIndexableAsIndexable2D<TValue> : IIndexable2D<TValue>
@@ -27,5 +29,14 @@ internal class IndexableOfIndexableAsIndexable2D<TValue> : IIndexable2D<TValue>
 	{
 		get => _source[x][y];
 		set => _source[x][y] = value;
+	}
+
+	public bool TryGetValue(int x, int y, [MaybeNullWhen(false)] out TValue value)
+	{
+		if (_source.TryGetValue(x, out var values))
+			return values.TryGetValue(y, out value);
+
+		value = default;
+		return false;
 	}
 }

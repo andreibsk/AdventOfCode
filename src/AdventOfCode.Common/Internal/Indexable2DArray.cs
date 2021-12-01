@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace AdventOfCode.Common.Internal;
 
 internal class Indexable2DArray<TValue> : IIndexable2D<TValue>
@@ -16,5 +18,10 @@ internal class Indexable2DArray<TValue> : IIndexable2D<TValue>
 	{
 		get => _array[x, y];
 		set => _array[x, y] = value;
+	}
+
+	public bool TryGetValue(int x, int y, [MaybeNullWhen(false)] out TValue value)
+	{
+		return _array.TryGetValue((x, y), out value);
 	}
 }

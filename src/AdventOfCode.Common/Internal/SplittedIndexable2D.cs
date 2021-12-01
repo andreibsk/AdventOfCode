@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace AdventOfCode.Common.Internal;
 
 internal class SplittedIndexable2D<TValue> : IIndexable2D<IIndexable2D<TValue>>
@@ -27,5 +29,10 @@ internal class SplittedIndexable2D<TValue> : IIndexable2D<IIndexable2D<TValue>>
 	{
 		get => _splitted[x, y];
 		set => _splitted[x, y] = value;
+	}
+
+	public bool TryGetValue(int x, int y, [MaybeNullWhen(false)] out IIndexable2D<TValue> value)
+	{
+		return _splitted.TryGetValue((x, y), out value);
 	}
 }

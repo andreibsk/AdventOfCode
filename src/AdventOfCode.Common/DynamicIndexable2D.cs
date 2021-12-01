@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace AdventOfCode.Common;
 
 public class DynamicIndexable2D<TValue> : IDynamicIndexable2D<TValue>
@@ -34,7 +36,7 @@ public class DynamicIndexable2D<TValue> : IDynamicIndexable2D<TValue>
 
 	public TValue this[int x, int y]
 	{
-		get => _dictionary.TryGetValue((x, y), out TValue value) ? value : default;
+		get => _dictionary[(x, y)];
 
 		set
 		{
@@ -80,5 +82,10 @@ public class DynamicIndexable2D<TValue> : IDynamicIndexable2D<TValue>
 				dictionary[(x, y)] = source[x, y];
 
 		return dictionary;
+	}
+
+	public bool TryGetValue(int x, int y, [MaybeNullWhen(false)] out TValue value)
+	{
+		return _dictionary.TryGetValue((x, y), out value);
 	}
 }

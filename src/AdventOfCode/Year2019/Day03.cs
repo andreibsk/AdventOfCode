@@ -38,7 +38,8 @@ public class Day03 : Puzzle
 			{
 				pos += direction;
 				totalDistance++;
-				firstPath[pos.X, pos.Y] ??= totalDistance;
+				if (!firstPath.TryGetValue(pos.X, pos.Y, out _))
+					firstPath[pos.X, pos.Y] = totalDistance;
 			}
 			while (pos != newpos);
 		}
@@ -53,10 +54,10 @@ public class Day03 : Puzzle
 				pos += direction;
 				totalDistance++;
 
-				if (firstPath[pos.X, pos.Y].HasValue)
+				if (firstPath.TryGetValue(pos.X, pos.Y, out var v) && v.HasValue)
 					closestDistance = Math.Min(
 						closestDistance,
-						part2 ? totalDistance + firstPath[pos.X, pos.Y]!.Value : pos.BlockDistanceTo(Position.Zero));
+						part2 ? totalDistance + v.Value : pos.BlockDistanceTo(Position.Zero));
 			}
 			while (pos != newpos);
 		}

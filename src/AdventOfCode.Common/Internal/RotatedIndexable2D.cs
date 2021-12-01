@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace AdventOfCode.Common.Internal;
 
 internal class RotatedIndexable2D<TValue> : IIndexable2D<TValue>
@@ -27,6 +29,12 @@ internal class RotatedIndexable2D<TValue> : IIndexable2D<TValue>
 			Rotate(ref x, ref y);
 			_source[x, y] = value;
 		}
+	}
+
+	public bool TryGetValue(int x, int y, [MaybeNullWhen(false)] out TValue value)
+	{
+		Rotate(ref x, ref y);
+		return _source.TryGetValue((x, y), out value);
 	}
 
 	private void Rotate(ref int x, ref int y)

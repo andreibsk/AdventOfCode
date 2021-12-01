@@ -83,7 +83,10 @@ public static class EnumerableExtensions
 
 	public static ValueTuple<T1, T2> ToValueTuple<T1, T2>(this IEnumerable<T1> source)
 	{
-		source.Deconstruct(out T1 value1, out T1 value2t1);
+		source.Deconstruct(out T1? value1, out T1? value2t1);
+		if (value1 is null || value2t1 is null)
+			throw new NullReferenceException();
+
 		if (!(value2t1 is T2 value2))
 			throw new InvalidCastException();
 

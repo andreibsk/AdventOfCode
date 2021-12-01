@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace AdventOfCode.Common;
 
 public class DynamicIndexable<TValue> : IDynamicIndexable<TValue>
@@ -27,7 +29,7 @@ public class DynamicIndexable<TValue> : IDynamicIndexable<TValue>
 
 	public TValue this[int index]
 	{
-		get => _dictionary.TryGetValue(index, out TValue value) ? value : default;
+		get => _dictionary[index];
 
 		set
 		{
@@ -68,5 +70,10 @@ public class DynamicIndexable<TValue> : IDynamicIndexable<TValue>
 			dictionary[i] = source[i];
 
 		return dictionary;
+	}
+
+	public bool TryGetValue(int index, [MaybeNullWhen(false)] out TValue value)
+	{
+		return _dictionary.TryGetValue(index, out value);
 	}
 }

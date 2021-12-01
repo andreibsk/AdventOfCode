@@ -21,12 +21,12 @@ public class Day18 : Puzzle
 				return inst switch
 				{
 					"snd" => cpu => Cpu.Instructions.Snd(cpu, x, xr),
-					"set" => cpu => Cpu.Instructions.Set(cpu, xr, y, yr.Value),
-					"add" => cpu => Cpu.Instructions.Add(cpu, xr, y, yr.Value),
-					"mul" => cpu => Cpu.Instructions.Mul(cpu, xr, y, yr.Value),
-					"mod" => cpu => Cpu.Instructions.Mod(cpu, xr, y, yr.Value),
+					"set" => cpu => Cpu.Instructions.Set(cpu, xr, y, yr!.Value),
+					"add" => cpu => Cpu.Instructions.Add(cpu, xr, y, yr!.Value),
+					"mul" => cpu => Cpu.Instructions.Mul(cpu, xr, y, yr!.Value),
+					"mod" => cpu => Cpu.Instructions.Mod(cpu, xr, y, yr!.Value),
 					"rcv" => cpu => Cpu.Instructions.Rcv(cpu, x, xr),
-					"jgz" => cpu => Cpu.Instructions.Jgz(cpu, x, xr, y, yr.Value),
+					"jgz" => cpu => Cpu.Instructions.Jgz(cpu, x, xr, y, yr!.Value),
 
 					_ => throw new FormatException()
 				};

@@ -13,25 +13,25 @@ public static class ArrayExtensions
 			yield return array.GetRow(index);
 	}
 
-	public static T ElementAtOrDefault<T>(this T[] array, int index)
+	public static T? ElementAtOrDefault<T>(this T[] array, int index)
 	{
 		return index < array.Length && index >= 0 ? array[index] : default;
 	}
 
-	public static T ElementAtOrDefault<T>(this T[,] array, int i, int j)
+	public static T? ElementAtOrDefault<T>(this T[,] array, int i, int j)
 	{
 		if (i >= 0 && j >= 0 && i < array.GetLength(0) && j < array.GetLength(1))
 			return array[i, j];
 		else
-			return default!;
+			return default;
 	}
 
-	public static T ElementAtOrDefault<T>(this T[,] array, Position p)
+	public static T? ElementAtOrDefault<T>(this T[,] array, Position p)
 	{
 		return array.ElementAtOrDefault(p.Y, p.X);
 	}
 
-	public static T ElementAtOrDefault<T>(this IList<T> collection, int index)
+	public static T? ElementAtOrDefault<T>(this IList<T> collection, int index)
 	{
 		return index < collection.Count && index >= 0 ? collection[index] : default;
 	}
@@ -49,6 +49,11 @@ public static class ArrayExtensions
 	public static T GetValue<T>(this T[,] array, Position p)
 	{
 		return array[p.X, p.Y];
+	}
+
+	public static bool HasInRange<T>(this T[] array, int index)
+	{
+		return index >= 0 && index < array.Length;
 	}
 
 	public static bool HasInRange<T>(this T[,] array, Position p)
@@ -114,6 +119,20 @@ public static class ArrayExtensions
 		return array;
 	}
 
+	public static bool TryGetValue<T>(this T[] array, int index, [MaybeNullWhen(false)] out T value)
+	{
+		if (array.HasInRange(index))
+		{
+			value = array[index];
+			return true;
+		}
+		else
+		{
+			value = default;
+			return false;
+		}
+	}
+
 	public static bool TryGetValue<T>(this T[,] array, Position p, [MaybeNullWhen(false)] out T value)
 	{
 		if (array.HasInRange(p))
@@ -123,7 +142,7 @@ public static class ArrayExtensions
 		}
 		else
 		{
-			value = default!;
+			value = default;
 			return false;
 		}
 	}

@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace AdventOfCode.Common.Internal;
 
 internal abstract class ArrayLine
@@ -33,5 +35,10 @@ internal class ArrayLine<T> : ArrayLine, IIndexable<T>
 	{
 		get => _source[_direction == Direction.Row ? _index1 : index2, _direction == Direction.Row ? index2 : _index1];
 		set => _source[_direction == Direction.Row ? _index1 : index2, _direction == Direction.Row ? index2 : _index1] = value;
+	}
+
+	public bool TryGetValue(int index2, [MaybeNullWhen(false)] out T value)
+	{
+		return _source.TryGetValue(_direction == Direction.Row ? (_index1, index2) : (index2, _index1), out value);
 	}
 }

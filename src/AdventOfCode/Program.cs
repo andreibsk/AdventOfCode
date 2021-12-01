@@ -7,7 +7,7 @@ public static class Program
 {
 	public static int Main(string[] args)
 	{
-		string datestr;
+		string? datestr;
 		if (args.Length == 0)
 		{
 			Console.WriteLine("Select puzzle to run. [[yy]yy.][dd]");

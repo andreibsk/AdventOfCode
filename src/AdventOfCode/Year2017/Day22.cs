@@ -37,14 +37,14 @@ public class Day22 : Puzzle
 
 		for (int i = 0; i < 10_000; i++)
 		{
-			direction = nodes[position.X, position.Y] switch
+			direction = nodes.GetValueOrDefault(position.X, position.Y) switch
 			{
 				NodeState.Clean => direction.ToLeft(),
 				NodeState.Infected => direction.ToRight(),
 				_ => throw new InvalidOperationException()
 			};
 
-			nodes[position.X, position.Y] = (NodeState)(((int)nodes[position.X, position.Y] + 2) % s_nodeStateCount);
+			nodes[position.X, position.Y] = (NodeState)(((int)nodes.GetValueOrDefault(position.X, position.Y) + 2) % s_nodeStateCount);
 
 			if (nodes[position.X, position.Y] == NodeState.Infected)
 				count++;
@@ -64,7 +64,7 @@ public class Day22 : Puzzle
 
 		for (int i = 0; i < 10_000_000; i++)
 		{
-			direction = nodes[position.X, position.Y] switch
+			direction = nodes.GetValueOrDefault(position.X, position.Y) switch
 			{
 				NodeState.Clean => direction.ToLeft(),
 				NodeState.Weakened => direction,
@@ -73,7 +73,7 @@ public class Day22 : Puzzle
 				_ => throw new InvalidOperationException()
 			};
 
-			nodes[position.X, position.Y] = (NodeState)(((int)nodes[position.X, position.Y] + 1) % s_nodeStateCount);
+			nodes[position.X, position.Y] = (NodeState)(((int)nodes.GetValueOrDefault(position.X, position.Y) + 1) % s_nodeStateCount);
 
 			if (nodes[position.X, position.Y] == NodeState.Infected)
 				count++;

@@ -41,7 +41,7 @@ internal class IntcodeComputer
 		int opcode;
 		for (int ip = 0; (opcode = (int)(Memory[ip] % 100)) != Opcode.Exit; ip++)
 		{
-			long Arg(int i) => Memory[Addr(i)];
+			long Arg(int i) => Memory.GetValueOrDefault(Addr(i));
 			int Addr(int i) => ((int)Memory[ip] / (int)Math.Pow(10, i + 1) % 10) switch
 			{
 				0 => (int)Memory[ip + i],

@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace AdventOfCode.Common.Internal;
 
 internal class SubIndexable2D<TValue> : IIndexable2D<TValue>
@@ -38,5 +40,14 @@ internal class SubIndexable2D<TValue> : IIndexable2D<TValue>
 
 			_source[_x + x, _y + y] = value;
 		}
+	}
+
+	public bool TryGetValue(int x, int y, [MaybeNullWhen(false)] out TValue value)
+	{
+		if (x >= 0 && x < Length0 && y >= 0 && y < Length1)
+			return _source.TryGetValue((x, y), out value);
+
+		value = default;
+		return false;
 	}
 }
