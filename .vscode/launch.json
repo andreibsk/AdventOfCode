@@ -1,0 +1,21 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": ".NET Core Launch (console)",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "externalTerminal",
+			"stopAtEntry": false
+		},
+		{
+			"name": ".NET Core Attach",
+			"type": "coreclr",
+			"request": "attach"
+		}
+	]
+}
