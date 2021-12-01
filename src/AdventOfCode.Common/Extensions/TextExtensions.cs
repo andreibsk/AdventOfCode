@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.IO;
-
 namespace AdventOfCode.Common.Extensions;
 
 public static class TextExtensions

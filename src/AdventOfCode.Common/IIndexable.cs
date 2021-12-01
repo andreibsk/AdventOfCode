@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using AdventOfCode.Common.Internal.Enumerators;
 
 namespace AdventOfCode.Common;

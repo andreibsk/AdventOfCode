@@ -1,4 +1,3 @@
-using System.Linq;
 using AdventOfCode.Year2019;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -9,18 +8,18 @@ public class Day06Tests : PuzzleTests<Day06>
 {
 	private static readonly string[] s_input = new[]
 	{
-			"COM)B",
-			"B)C",
-			"C)D",
-			"D)E",
-			"E)F",
-			"B)G",
-			"G)H",
-			"D)I",
-			"E)J",
-			"J)K",
-			"K)L"
-		};
+		"COM)B",
+		"B)C",
+		"C)D",
+		"D)E",
+		"E)F",
+		"B)G",
+		"G)H",
+		"D)I",
+		"E)J",
+		"J)K",
+		"K)L"
+	};
 
 	[TestMethod]
 	[DataRow("42")]

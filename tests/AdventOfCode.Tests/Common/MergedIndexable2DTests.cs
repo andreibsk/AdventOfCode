@@ -1,5 +1,3 @@
-using AdventOfCode.Common;
-using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Internal;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -18,30 +16,30 @@ public class MergedIndexable2DTests
 
 	private readonly MergedIndexable2D<int> _merged = new MergedIndexable2D<int>(new IIndexable2D<int>[,]
 	{
+		{
+			new[,]
 			{
-				new[,]
-				{
-					{ 1, 2 },
-					{ 6, 7 }
-				}.AsIndexable(),
-				new[,]
-				{
-					{ 3, 4, 5 },
-					{ 8, 9, 10 }
-				}.AsIndexable(),
-			},
+				{ 1, 2 },
+				{ 6, 7 }
+			}.AsIndexable(),
+			new[,]
 			{
-				new[,]
-				{
-					{ 11, 12, 13 },
-					{ 16, 17, 18 }
-				}.AsIndexable(),
-				new[,]
-				{
-					{ 14, 15 },
-					{ 19, 20 }
-				}.AsIndexable(),
-			}
+				{ 3, 4, 5 },
+				{ 8, 9, 10 }
+			}.AsIndexable(),
+		},
+		{
+			new[,]
+			{
+				{ 11, 12, 13 },
+				{ 16, 17, 18 }
+			}.AsIndexable(),
+			new[,]
+			{
+				{ 14, 15 },
+				{ 19, 20 }
+			}.AsIndexable(),
+		}
 	}.AsIndexable());
 
 	[TestMethod]

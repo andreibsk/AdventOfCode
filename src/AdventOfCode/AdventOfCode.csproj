@@ -12,6 +12,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Using Include="AdventOfCode.Common" />
+		<Using Include="AdventOfCode.Common.Extensions" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Update="Inputs\**">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>

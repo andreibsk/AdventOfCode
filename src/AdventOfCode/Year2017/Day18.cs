@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using AdventOfCode.Common.Extensions;
 using Instruction = System.Action<AdventOfCode.Year2017.Day18.Cpu>;
 
 namespace AdventOfCode.Year2017;

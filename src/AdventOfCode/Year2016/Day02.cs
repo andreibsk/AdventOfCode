@@ -1,8 +1,4 @@
-using System;
-using System.Linq;
 using System.Text;
-using AdventOfCode.Common;
-using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode.Year2016;
 
@@ -12,11 +8,11 @@ public class Day02 : Puzzle
 
 	private readonly char?[,] _pad = new char?[,]
 	{
-			{ null, null, '1', null, null },
-			{ null,  '2', '3',  '4', null },
-			{ '5',   '6', '7',  '8',  '9' },
-			{ null,  'A', 'B',  'C', null },
-			{ null, null, 'D', null, null }
+		{ null, null, '1', null, null },
+		{ null,  '2', '3',  '4', null },
+		{ '5',   '6', '7',  '8',  '9' },
+		{ null,  'A', 'B',  'C', null },
+		{ null, null, 'D', null, null }
 	};
 
 	public Day02(string[] input) : base(input)

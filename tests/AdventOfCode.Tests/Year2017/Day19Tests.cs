@@ -8,13 +8,13 @@ public class Day19Tests : PuzzleTests<Day19>
 {
 	private static readonly string[] s_input = new[]
 	{
-			"     |          ",
-			"     |  +--+    ",
-			"     A  |  C    ",
-			" F---|----E|--+ ",
-			"     |  |  |  D ",
-			"     +B-+  +--+ "
-		};
+		"     |          ",
+		"     |  +--+    ",
+		"     A  |  C    ",
+		" F---|----E|--+ ",
+		"     |  |  |  D ",
+		"     +B-+  +--+ "
+	};
 
 	[TestMethod]
 	[DataRow("ABCDEF")]

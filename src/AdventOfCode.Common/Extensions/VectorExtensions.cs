@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode.Common.Extensions;
 
 public static class VectorExtensions

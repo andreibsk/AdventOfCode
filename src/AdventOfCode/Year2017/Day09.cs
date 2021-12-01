@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode.Year2017;
 
 public class Day09 : Puzzle

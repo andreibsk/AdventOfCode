@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode.Common.Internal;
 
 internal class IndexableOfIndexableAsIndexable2D<TValue> : IIndexable2D<TValue>

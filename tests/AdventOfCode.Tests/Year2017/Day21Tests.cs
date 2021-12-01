@@ -8,9 +8,9 @@ public class Day21Tests : PuzzleTests<Day21>
 {
 	private static readonly string[] s_input = new[]
 	{
-			"../.# => ##./#../...",
-			".#./..#/### => #..#/..../..../#..#"
-		};
+		"../.# => ##./#../...",
+		".#./..#/### => #..#/..../..../#..#"
+	};
 
 	[TestMethod]
 	[DataRow("12", "2")]

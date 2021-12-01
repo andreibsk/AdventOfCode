@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using AdventOfCode.Common.Internal;
 
 namespace AdventOfCode.Common.Extensions;

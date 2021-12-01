@@ -1,4 +1,3 @@
-using System;
 using System.Text;
 
 namespace AdventOfCode.Common.Internal;

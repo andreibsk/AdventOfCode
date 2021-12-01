@@ -1,7 +1,3 @@
-using System;
-using System.Linq;
-using AdventOfCode.Common;
-using AdventOfCode.Common.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Tests.Common;

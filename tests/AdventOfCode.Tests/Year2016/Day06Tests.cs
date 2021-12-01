@@ -8,23 +8,23 @@ public class Day06Tests : PuzzleTests<Day06>
 {
 	private static readonly string[] s_input = new[]
 	{
-			"eedadn",
-			"drvtee",
-			"eandsr",
-			"raavrd",
-			"atevrs",
-			"tsrnev",
-			"sdttsa",
-			"rasrtv",
-			"nssdts",
-			"ntnada",
-			"svetve",
-			"tesnvt",
-			"vntsnd",
-			"vrdear",
-			"dvrsen",
-			"enarar"
-		};
+		"eedadn",
+		"drvtee",
+		"eandsr",
+		"raavrd",
+		"atevrs",
+		"tsrnev",
+		"sdttsa",
+		"rasrtv",
+		"nssdts",
+		"ntnada",
+		"svetve",
+		"tesnvt",
+		"vntsnd",
+		"vrdear",
+		"dvrsen",
+		"enarar"
+	};
 
 	[TestMethod]
 	[DataRow("easter")]

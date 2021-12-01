@@ -8,15 +8,15 @@ public class Day24Tests : PuzzleTests<Day24>
 {
 	private static readonly string[] s_input = new[]
 	{
-			"0/2",
-			"2/2",
-			"2/3",
-			"3/4",
-			"3/5",
-			"0/1",
-			"10/1",
-			"9/10"
-		};
+		"0/2",
+		"2/2",
+		"2/3",
+		"3/4",
+		"3/5",
+		"0/1",
+		"10/1",
+		"9/10"
+	};
 
 	[TestMethod]
 	[DataRow("31")]

@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode.Common.Internal;
 
 internal class MergedIndexable2D<TValue> : IIndexable2D<TValue>

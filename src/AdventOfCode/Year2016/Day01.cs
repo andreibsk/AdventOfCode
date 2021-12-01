@@ -1,6 +1,3 @@
-using AdventOfCode.Common;
-using AdventOfCode.Common.Extensions;
-
 namespace AdventOfCode.Year2016;
 
 public class Day01 : Puzzle

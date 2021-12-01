@@ -8,10 +8,10 @@ public class Day22Tests : PuzzleTests<Day22>
 {
 	private static readonly string[] s_input = new[]
 	{
-			"..#",
-			"#..",
-			"..."
-		};
+		"..#",
+		"#..",
+		"..."
+	};
 
 	[TestMethod]
 	[DataRow("5587")]

@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using AdventOfCode.Common;
-
 namespace AdventOfCode.Year2019;
 
 public class Day13 : Puzzle

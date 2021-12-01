@@ -2,6 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
 		<IsPackable>false</IsPackable>
@@ -16,6 +17,11 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\AdventOfCode.Common\AdventOfCode.Common.csproj" />
 		<ProjectReference Include="..\..\src\AdventOfCode\AdventOfCode.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="AdventOfCode.Common" />
+		<Using Include="AdventOfCode.Common.Extensions" />
 	</ItemGroup>
 
 </Project>

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace AdventOfCode.Common;
 
 public class DynamicIndexable2D<TValue> : IDynamicIndexable2D<TValue>

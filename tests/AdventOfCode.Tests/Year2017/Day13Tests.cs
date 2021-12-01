@@ -8,11 +8,11 @@ public class Day13Tests : PuzzleTests<Day13>
 {
 	private static readonly string[] s_input = new[]
 	{
-			"0: 3",
-			"1: 2",
-			"4: 4",
-			"6: 4"
-		};
+		"0: 3",
+		"1: 2",
+		"4: 4",
+		"6: 4"
+	};
 
 	[TestMethod]
 	[DataRow("24")]

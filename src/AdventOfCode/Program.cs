@@ -1,8 +1,5 @@
-using System;
 using System.Diagnostics;
-using System.IO;
 using System.Text.RegularExpressions;
-using AdventOfCode.Common.Extensions;
 
 namespace AdventOfCode;
 

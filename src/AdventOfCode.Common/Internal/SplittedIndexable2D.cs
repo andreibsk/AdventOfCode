@@ -1,5 +1,3 @@
-using System;
-
 namespace AdventOfCode.Common.Internal;
 
 internal class SplittedIndexable2D<TValue> : IIndexable2D<IIndexable2D<TValue>>

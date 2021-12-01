@@ -1,5 +1,3 @@
-using AdventOfCode.Common;
-using AdventOfCode.Common.Extensions;
 using AdventOfCode.Common.Internal;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,9 +8,9 @@ public class RotatedIndexable2DTests
 {
 	private readonly IIndexable2D<int> _initial = new[,]
 	{
-			{ 0, 1, 2, 3 },
-			{ 4, 5, 6, 7 }
-		}.AsIndexable();
+		{ 0, 1, 2, 3 },
+		{ 4, 5, 6, 7 }
+	}.AsIndexable();
 
 	[TestMethod]
 	public void Rotate1()

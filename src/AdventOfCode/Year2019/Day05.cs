@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-
 namespace AdventOfCode.Year2019;
 
 public class Day05 : Puzzle

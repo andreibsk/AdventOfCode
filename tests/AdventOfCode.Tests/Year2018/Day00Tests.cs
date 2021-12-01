@@ -8,8 +8,8 @@ public class Day00Tests : PuzzleTests<Day00>
 {
 	private static readonly string[] s_input = new[]
 	{
-			""
-		};
+		""
+	};
 
 	[TestMethod]
 	[DataRow("", "")]
@@ -22,15 +22,15 @@ public class Day00Tests : PuzzleTests<Day00>
 	[TestMethod]
 	[DataRow(new[]
 	{
-			""
-		}, "")]
+		""
+	}, "")]
 	public void PartOneExamples(string[] input, string expected) => CalculatePartOne(input, expected);
 
 	[TestMethod]
 	[DataRow(new[]
 	{
-			""
-		}, "")]
+		""
+	}, "")]
 	public void PartTwoExamples(string[] input, string expected) => CalculatePartTwo(input, expected);
 
 	[TestMethod]

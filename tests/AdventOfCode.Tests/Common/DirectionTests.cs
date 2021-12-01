@@ -1,4 +1,3 @@
-using AdventOfCode.Common;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AdventOfCode.Tests.Common;

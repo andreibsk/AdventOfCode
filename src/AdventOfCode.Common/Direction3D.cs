@@ -1,6 +1,3 @@
-using System;
-using AdventOfCode.Common.Extensions;
-
 namespace AdventOfCode.Common;
 
 public struct Direction3D

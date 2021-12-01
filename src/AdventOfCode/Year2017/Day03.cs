@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using AdventOfCode.Common;
-
 namespace AdventOfCode.Year2017;
 
 public class Day03 : Puzzle

@@ -1,5 +1,3 @@
-using AdventOfCode.Common.Extensions;
-
 namespace AdventOfCode.Common;
 
 public struct Vector3 : IVector3

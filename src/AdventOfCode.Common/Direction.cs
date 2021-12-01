@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using AdventOfCode.Common.Extensions;
-
 namespace AdventOfCode.Common;
 
 public struct Direction : IVector2, IComparable<Direction>
