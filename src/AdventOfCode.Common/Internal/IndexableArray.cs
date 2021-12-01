@@ -1,20 +1,19 @@
-namespace AdventOfCode.Common.Internal
+namespace AdventOfCode.Common.Internal;
+
+internal class IndexableArray<TValue> : IIndexable<TValue>
 {
-	internal class IndexableArray<TValue> : IIndexable<TValue>
+	private readonly TValue[] _array;
+
+	public IndexableArray(TValue[] array)
 	{
-		private readonly TValue[] _array;
+		_array = array;
+	}
 
-		public IndexableArray(TValue[] array)
-		{
-			_array = array;
-		}
+	public int Length => _array.Length;
 
-		public int Length => _array.Length;
-
-		public TValue this[int index]
-		{
-			get => _array[index];
-			set => _array[index] = value;
-		}
+	public TValue this[int index]
+	{
+		get => _array[index];
+		set => _array[index] = value;
 	}
 }

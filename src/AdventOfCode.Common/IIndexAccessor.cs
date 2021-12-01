@@ -1,7 +1,6 @@
-namespace AdventOfCode.Common
+namespace AdventOfCode.Common;
+
+public interface IIndexAccessor<TValue>
 {
-	public interface IIndexAccessor<TValue>
-	{
-		TValue this[int index] { get; set; }
-	}
+	TValue this[int index] { get; set; }
 }

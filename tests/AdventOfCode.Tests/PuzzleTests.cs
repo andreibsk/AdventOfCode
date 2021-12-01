@@ -1,33 +1,32 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AdventOfCode.Tests
+namespace AdventOfCode.Tests;
+
+public abstract class PuzzleTests<TPuzzle> where TPuzzle : Puzzle
 {
-	public abstract class PuzzleTests<TPuzzle> where TPuzzle : Puzzle
+	protected void CalculatePartOne(string input, string expected) => CalculatePartOne(new[] { input }, expected);
+
+	protected void CalculatePartOne(string[] input, string expected) => CalculatePartOne(input, expected, config: null);
+
+	protected void CalculatePartOne(string[] input, string expected, string? config)
 	{
-		protected void CalculatePartOne(string input, string expected) => CalculatePartOne(new[] { input }, expected);
+		TPuzzle puzzle = Puzzle.Construct<TPuzzle>(input, config);
 
-		protected void CalculatePartOne(string[] input, string expected) => CalculatePartOne(input, expected, config: null);
+		string? solution = puzzle.CalculateSolution();
 
-		protected void CalculatePartOne(string[] input, string expected, string? config)
-		{
-			TPuzzle puzzle = Puzzle.Construct<TPuzzle>(input, config);
+		Assert.AreEqual(expected, solution);
+	}
 
-			string? solution = puzzle.CalculateSolution();
+	protected void CalculatePartTwo(string input, string expected) => CalculatePartTwo(new[] { input }, expected);
 
-			Assert.AreEqual(expected, solution);
-		}
+	protected void CalculatePartTwo(string[] input, string expected) => CalculatePartTwo(input, expected, config: null);
 
-		protected void CalculatePartTwo(string input, string expected) => CalculatePartTwo(new[] { input }, expected);
+	protected void CalculatePartTwo(string[] input, string expected, string? config)
+	{
+		TPuzzle puzzle = Puzzle.Construct<TPuzzle>(input, config);
 
-		protected void CalculatePartTwo(string[] input, string expected) => CalculatePartTwo(input, expected, config: null);
+		string? solution = puzzle.CalculateSolutionPartTwo();
 
-		protected void CalculatePartTwo(string[] input, string expected, string? config)
-		{
-			TPuzzle puzzle = Puzzle.Construct<TPuzzle>(input, config);
-
-			string? solution = puzzle.CalculateSolutionPartTwo();
-
-			Assert.AreEqual(expected, solution);
-		}
+		Assert.AreEqual(expected, solution);
 	}
 }

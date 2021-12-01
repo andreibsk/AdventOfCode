@@ -2,40 +2,39 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace AdventOfCode.Common.Internal.Enumerators
+namespace AdventOfCode.Common.Internal.Enumerators;
+
+internal class DynamicIndexableEnumerator<TValue> : IEnumerator<TValue>
 {
-	internal class DynamicIndexableEnumerator<TValue> : IEnumerator<TValue>
+	private readonly IDynamicIndexable<TValue> _values;
+	private int _index;
+
+	public DynamicIndexableEnumerator(IDynamicIndexable<TValue> values)
 	{
-		private readonly IDynamicIndexable<TValue> _values;
-		private int _index;
+		_values = values;
+		Reset();
+	}
 
-		public DynamicIndexableEnumerator(IDynamicIndexable<TValue> values)
+	public TValue Current
+	{
+		get
 		{
-			_values = values;
-			Reset();
-		}
-
-		public TValue Current
-		{
-			get
+			try
 			{
-				try
-				{
-					return _values[_index];
-				}
-				catch (IndexOutOfRangeException)
-				{
-					throw new InvalidOperationException();
-				}
+				return _values[_index];
+			}
+			catch (IndexOutOfRangeException)
+			{
+				throw new InvalidOperationException();
 			}
 		}
-
-		object? IEnumerator.Current => Current;
-
-		public void Dispose() { }
-
-		public bool MoveNext() => ++_index < _values.Length;
-
-		public void Reset() => _index = _values.Start - 1;
 	}
+
+	object? IEnumerator.Current => Current;
+
+	public void Dispose() { }
+
+	public bool MoveNext() => ++_index < _values.Length;
+
+	public void Reset() => _index = _values.Start - 1;
 }

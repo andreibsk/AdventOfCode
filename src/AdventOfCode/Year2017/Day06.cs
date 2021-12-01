@@ -3,70 +3,69 @@ using System.Collections.Generic;
 using System.Linq;
 using AdventOfCode.Common.Extensions;
 
-namespace AdventOfCode.Year2017
+namespace AdventOfCode.Year2017;
+
+public class Day06 : Puzzle
 {
-	public class Day06 : Puzzle
+	private readonly int[] _banks;
+
+	public Day06(string[] input) : base(input)
 	{
-		private readonly int[] _banks;
+		_banks = input[0].Split(' ', '\t').Select(int.Parse).ToArray();
+	}
 
-		public Day06(string[] input) : base(input)
+	public override DateTime Date => new DateTime(2017, 12, 6);
+	public override string Title => "Memory Reallocation";
+
+	public override string? CalculateSolution()
+	{
+		int[] banks = (int[])_banks.Clone();
+		var states = new List<int[]>();
+		int m, blocks;
+
+		while (!states.Exists(s => s.SequenceEqual(banks)))
 		{
-			_banks = input[0].Split(' ', '\t').Select(int.Parse).ToArray();
-		}
+			states.Add((int[])banks.Clone());
 
-		public override DateTime Date => new DateTime(2017, 12, 6);
-		public override string Title => "Memory Reallocation";
+			m = banks.IndexOfMaxValue();
+			blocks = banks[m];
+			banks[m] = 0;
 
-		public override string? CalculateSolution()
-		{
-			int[] banks = (int[])_banks.Clone();
-			var states = new List<int[]>();
-			int m, blocks;
-
-			while (!states.Exists(s => s.SequenceEqual(banks)))
+			// Redistribute
+			for (int i = m + 1; blocks > 0; i++)
 			{
-				states.Add((int[])banks.Clone());
-
-				m = banks.IndexOfMaxValue();
-				blocks = banks[m];
-				banks[m] = 0;
-
-				// Redistribute
-				for (int i = m + 1; blocks > 0; i++)
-				{
-					banks[i % banks.Length]++;
-					blocks--;
-				}
+				banks[i % banks.Length]++;
+				blocks--;
 			}
-
-			Solution = states.Count.ToString();
-			return Solution;
 		}
 
-		public override string? CalculateSolutionPartTwo()
+		Solution = states.Count.ToString();
+		return Solution;
+	}
+
+	public override string? CalculateSolutionPartTwo()
+	{
+		int[] banks = (int[])_banks.Clone();
+		var states = new List<int[]>();
+		int m, blocks, si;
+
+		while ((si = states.FindIndex(s => s.SequenceEqual(banks))) == -1)
 		{
-			int[] banks = (int[])_banks.Clone();
-			var states = new List<int[]>();
-			int m, blocks, si;
+			states.Add((int[])banks.Clone());
 
-			while ((si = states.FindIndex(s => s.SequenceEqual(banks))) == -1)
+			m = banks.IndexOfMaxValue();
+			blocks = banks[m];
+			banks[m] = 0;
+
+			// Redistribute
+			for (int i = m + 1; blocks > 0; i++)
 			{
-				states.Add((int[])banks.Clone());
-
-				m = banks.IndexOfMaxValue();
-				blocks = banks[m];
-				banks[m] = 0;
-
-				// Redistribute
-				for (int i = m + 1; blocks > 0; i++)
-				{
-					banks[i % banks.Length]++;
-					blocks--;
-				}
+				banks[i % banks.Length]++;
+				blocks--;
 			}
-
-			SolutionPartTwo = (states.Count - si).ToString();
-			return SolutionPartTwo;
 		}
+
+		SolutionPartTwo = (states.Count - si).ToString();
+		return SolutionPartTwo;
 	}
 }

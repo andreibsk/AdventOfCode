@@ -1,13 +1,13 @@
 using AdventOfCode.Year2017;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AdventOfCode.Tests.Year2017
+namespace AdventOfCode.Tests.Year2017;
+
+[TestClass]
+public class Day07Tests : PuzzleTests<Day07>
 {
-	[TestClass]
-	public class Day07Tests : PuzzleTests<Day07>
+	private static readonly string[] s_input = new[]
 	{
-		private static readonly string[] s_input = new[]
-		{
 			"pbga (66)",
 			"xhth (57)",
 			"ebii (61)",
@@ -23,12 +23,11 @@ namespace AdventOfCode.Tests.Year2017
 			"cntj (57)"
 		};
 
-		[TestMethod]
-		[DataRow("tknk")]
-		public void PartOneExample(string expected) => CalculatePartOne(s_input, expected);
+	[TestMethod]
+	[DataRow("tknk")]
+	public void PartOneExample(string expected) => CalculatePartOne(s_input, expected);
 
-		[TestMethod]
-		[DataRow("60")]
-		public void PartTwoExample(string expected) => CalculatePartTwo(s_input, expected);
-	}
+	[TestMethod]
+	[DataRow("60")]
+	public void PartTwoExample(string expected) => CalculatePartTwo(s_input, expected);
 }

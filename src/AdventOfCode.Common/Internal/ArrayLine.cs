@@ -1,38 +1,37 @@
-namespace AdventOfCode.Common.Internal
+namespace AdventOfCode.Common.Internal;
+
+internal abstract class ArrayLine
 {
-	internal abstract class ArrayLine
+	protected readonly Direction _direction;
+	protected readonly int _index1;
+
+	protected ArrayLine(Direction direction, int index)
 	{
-		protected readonly Direction _direction;
-		protected readonly int _index1;
-
-		protected ArrayLine(Direction direction, int index)
-		{
-			_direction = direction;
-			_index1 = index;
-		}
-
-		public enum Direction
-		{
-			Column,
-			Row
-		}
+		_direction = direction;
+		_index1 = index;
 	}
 
-	internal class ArrayLine<T> : ArrayLine, IIndexable<T>
+	public enum Direction
 	{
-		private readonly T[,] _source;
+		Column,
+		Row
+	}
+}
 
-		public ArrayLine(T[,] source, Direction direction, int index) : base(direction, index)
-		{
-			_source = source;
-		}
+internal class ArrayLine<T> : ArrayLine, IIndexable<T>
+{
+	private readonly T[,] _source;
 
-		public int Length => _source.GetLength(_direction == Direction.Row ? 1 : 0);
+	public ArrayLine(T[,] source, Direction direction, int index) : base(direction, index)
+	{
+		_source = source;
+	}
 
-		public T this[int index2]
-		{
-			get => _source[_direction == Direction.Row ? _index1 : index2, _direction == Direction.Row ? index2 : _index1];
-			set => _source[_direction == Direction.Row ? _index1 : index2, _direction == Direction.Row ? index2 : _index1] = value;
-		}
+	public int Length => _source.GetLength(_direction == Direction.Row ? 1 : 0);
+
+	public T this[int index2]
+	{
+		get => _source[_direction == Direction.Row ? _index1 : index2, _direction == Direction.Row ? index2 : _index1];
+		set => _source[_direction == Direction.Row ? _index1 : index2, _direction == Direction.Row ? index2 : _index1] = value;
 	}
 }

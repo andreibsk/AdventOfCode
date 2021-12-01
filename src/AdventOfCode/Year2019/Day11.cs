@@ -4,70 +4,69 @@ using System.Linq;
 using AdventOfCode.Common;
 using AdventOfCode.Common.Extensions;
 
-namespace AdventOfCode.Year2019
+namespace AdventOfCode.Year2019;
+
+public class Day11 : Puzzle
 {
-	public class Day11 : Puzzle
+	private readonly long[] _initialMemory;
+
+	public Day11(string[] input) : base(input)
 	{
-		private readonly long[] _initialMemory;
+		_initialMemory = input[0].Split(',').Select(long.Parse).ToArray();
+	}
 
-		public Day11(string[] input) : base(input)
+	public override DateTime Date => new DateTime(2019, 12, 11);
+	public override string Title => "Space Police";
+
+	public override string? CalculateSolution()
+	{
+		var computer = new IntcodeComputer(_initialMemory);
+		var inputQueue = new Queue<long>(new[] { 0L });
+		IDynamicIndexable2D<bool> panels = new DynamicIndexable2D<bool>();
+		Position pos = Position.Zero;
+		Direction direction = Direction.North;
+		var paintedPanels = new HashSet<Position>();
+
+		using IEnumerator<long> e = computer.Execute(inputQueue).GetEnumerator();
+
+		while (e.MoveNext())
 		{
-			_initialMemory = input[0].Split(',').Select(long.Parse).ToArray();
+			long color = e.Current;
+			long turn = e.MoveNext() ? e.Current : throw new InvalidOperationException();
+
+			panels[pos] = color == 1;
+			paintedPanels.Add(pos);
+			direction = turn == 1 ? direction.ToRight() : direction.ToLeft();
+			pos += direction * 1;
+
+			inputQueue.Enqueue(panels[pos] ? 1 : 0);
 		}
 
-		public override DateTime Date => new DateTime(2019, 12, 11);
-		public override string Title => "Space Police";
+		return Solution = paintedPanels.Count().ToString();
+	}
 
-		public override string? CalculateSolution()
+	public override string? CalculateSolutionPartTwo()
+	{
+		var computer = new IntcodeComputer(_initialMemory);
+		var inputQueue = new Queue<long>(new[] { 1L });
+		IDynamicIndexable2D<bool> panels = new DynamicIndexable2D<bool>(new[,] { { true } }.AsIndexable());
+		Position pos = Position.Zero;
+		Direction direction = Direction.North;
+
+		using IEnumerator<long> e = computer.Execute(inputQueue).GetEnumerator();
+
+		while (e.MoveNext())
 		{
-			var computer = new IntcodeComputer(_initialMemory);
-			var inputQueue = new Queue<long>(new[] { 0L });
-			IDynamicIndexable2D<bool> panels = new DynamicIndexable2D<bool>();
-			Position pos = Position.Zero;
-			Direction direction = Direction.North;
-			var paintedPanels = new HashSet<Position>();
+			long color = e.Current;
+			long turn = e.MoveNext() ? e.Current : throw new InvalidOperationException();
 
-			using IEnumerator<long> e = computer.Execute(inputQueue).GetEnumerator();
+			panels[pos] = color == 1;
+			direction = turn == 1 ? direction.ToRight() : direction.ToLeft();
+			pos += direction * 1;
 
-			while (e.MoveNext())
-			{
-				long color = e.Current;
-				long turn = e.MoveNext() ? e.Current : throw new InvalidOperationException();
-
-				panels[pos] = color == 1;
-				paintedPanels.Add(pos);
-				direction = turn == 1 ? direction.ToRight() : direction.ToLeft();
-				pos += direction * 1;
-
-				inputQueue.Enqueue(panels[pos] ? 1 : 0);
-			}
-
-			return Solution = paintedPanels.Count().ToString();
+			inputQueue.Enqueue(panels[pos] ? 1 : 0);
 		}
 
-		public override string? CalculateSolutionPartTwo()
-		{
-			var computer = new IntcodeComputer(_initialMemory);
-			var inputQueue = new Queue<long>(new[] { 1L });
-			IDynamicIndexable2D<bool> panels = new DynamicIndexable2D<bool>(new[,] { { true } }.AsIndexable());
-			Position pos = Position.Zero;
-			Direction direction = Direction.North;
-
-			using IEnumerator<long> e = computer.Execute(inputQueue).GetEnumerator();
-
-			while (e.MoveNext())
-			{
-				long color = e.Current;
-				long turn = e.MoveNext() ? e.Current : throw new InvalidOperationException();
-
-				panels[pos] = color == 1;
-				direction = turn == 1 ? direction.ToRight() : direction.ToLeft();
-				pos += direction * 1;
-
-				inputQueue.Enqueue(panels[pos] ? 1 : 0);
-			}
-
-			return SolutionPartTwo = panels.ToString(b => b ? '#' : ' ', screenMode: true);
-		}
+		return SolutionPartTwo = panels.ToString(b => b ? '#' : ' ', screenMode: true);
 	}
 }

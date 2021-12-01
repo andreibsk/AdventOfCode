@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using AdventOfCode.Common.Internal.Enumerators;
 
-namespace AdventOfCode.Common
+namespace AdventOfCode.Common;
+
+public interface IDynamicIndexable<TValue> : IIndexAccessor<TValue>, IEnumerable<TValue>
 {
-	public interface IDynamicIndexable<TValue> : IIndexAccessor<TValue>, IEnumerable<TValue>
-	{
-		int Length { get; }
-		int Start { get; }
+	int Length { get; }
+	int Start { get; }
 
-		void Clear();
+	void Clear();
 
-		IEnumerator<TValue> IEnumerable<TValue>.GetEnumerator() => new DynamicIndexableEnumerator<TValue>(this);
+	IEnumerator<TValue> IEnumerable<TValue>.GetEnumerator() => new DynamicIndexableEnumerator<TValue>(this);
 
-		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-	}
+	IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }

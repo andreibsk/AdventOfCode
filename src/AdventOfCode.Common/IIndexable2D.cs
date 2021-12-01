@@ -1,8 +1,7 @@
-namespace AdventOfCode.Common
+namespace AdventOfCode.Common;
+
+public interface IIndexable2D<TValue> : IIndexAccessor2D<TValue>
 {
-	public interface IIndexable2D<TValue> : IIndexAccessor2D<TValue>
-	{
-		int Length0 { get; }
-		int Length1 { get; }
-	}
+	int Length0 { get; }
+	int Length1 { get; }
 }
