@@ -37,6 +37,16 @@
 				"/consoleloggerparameters:NoSummary"
 			],
 			"problemMatcher": "$msCompile"
+		},
+		{
+			"label": "test",
+			"command": "dotnet",
+			"type": "process",
+			"args": [
+				"test",
+				"${workspaceFolder}/tests/AdventOfCode.Tests/AdventOfCode.Tests.csproj"
+			],
+			"problemMatcher": "$msCompile"
 		}
 	]
 }

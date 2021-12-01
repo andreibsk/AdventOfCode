@@ -1,4 +1,8 @@
 {
     "editor.semanticHighlighting.enabled": true,
-    "csharp.semanticHighlighting.enabled": true
+    "csharp.semanticHighlighting.enabled": true,
+    "files.exclude": {
+        "**/bin": true,
+        "**/obj": true
+    }
 }
