@@ -2,20 +2,2018 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": ".NET Core Launch (console)",
+			"name": "AdventOfCode",
 			"type": "coreclr",
 			"request": "launch",
 			"preLaunchTask": "build",
 			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
 			"args": [],
 			"cwd": "${workspaceFolder}/src/AdventOfCode",
-			"console": "externalTerminal",
-			"stopAtEntry": false
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch"
+			}
 		},
 		{
-			"name": ".NET Core Attach",
+			"name": "AdventOfCode 21.01",
 			"type": "coreclr",
-			"request": "attach"
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.01"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.02",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.02"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.03",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.03"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.04",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.04"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.05",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.05"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.06",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.06"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.07",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.07"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.08",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.08"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.09",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.09"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.10",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.10"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.11",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.11"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.12",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.12"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.13",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.13"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.14",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.14"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.15",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.15"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.16",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.16"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.17",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.17"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.18",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.18"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.19",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.19"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.20",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.20"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.21",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.21"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.22",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.22"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.23",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.23"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.24",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.24"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 21.25 🎅",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"21.25"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-1"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.01",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.01"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.02",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.02"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.03",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.03"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.04",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.04"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.05",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.05"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.06",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.06"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.07",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.07"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.08",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.08"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.09",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.09"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.10",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.10"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.11",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.11"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.12",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.12"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.13",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.13"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.14",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.14"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.15",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.15"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.16",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.16"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.17",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.17"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.18",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.18"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.19",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.19"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.20",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.20"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.21",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.21"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.22",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.22"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.23",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.23"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.24",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.24"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 19.25 🎅",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"19.25"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-3"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.01",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.01"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.02",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.02"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.03",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.03"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.04",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.04"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.05",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.05"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.06",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.06"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.07",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.07"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.08",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.08"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.09",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.09"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.10",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.10"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.11",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.11"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.12",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.12"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.13",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.13"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.14",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.14"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.15",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.15"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.16",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.16"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.17",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.17"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.18",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.18"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.19",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.19"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.20",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.20"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.21",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.21"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.22",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.22"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.23",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.23"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.24",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.24"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 18.25 🎅",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"18.25"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-4"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.01",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.01"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.02",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.02"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.03",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.03"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.04",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.04"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.05",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.05"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.06",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.06"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.07",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.07"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.08",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.08"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.09",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.09"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.10",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.10"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.11",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.11"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.12",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.12"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.13",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.13"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.14",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.14"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.15",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.15"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.16",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.16"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.17",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.17"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.18",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.18"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.19",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.19"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.20",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.20"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.21",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.21"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.22",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.22"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.23",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.23"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.24",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.24"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 17.25 🎅",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"17.25"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-5"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.01",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.01"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.02",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.02"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.03",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.03"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.04",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.04"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.05",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.05"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.06",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.06"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.07",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.07"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.08",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.08"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.09",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.09"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.10",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.10"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.11",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.11"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.12",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.12"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.13",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.13"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.14",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.14"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.15",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.15"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.16",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.16"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.17",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.17"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.18",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.18"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.19",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.19"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.20",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.20"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.21",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.21"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.22",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.22"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.23",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.23"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.24",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.24"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
+		},
+		{
+			"name": "AdventOfCode 16.25 🎅",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "build",
+			"program": "${workspaceFolder}/src/AdventOfCode/bin/Debug/net6.0/AdventOfCode.dll",
+			"args": [
+				"16.25"
+			],
+			"cwd": "${workspaceFolder}/src/AdventOfCode",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"presentation": {
+				"group": "launch-6"
+			}
 		}
 	]
 }
